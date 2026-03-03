@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavan | Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero fade-in">
+        <h1>Hi, I'm <span class="highlight">Pavan</span>.</h1>
+        <h2>Software Engineer specializing in AI, Machine Learning, and Scalable Architecture.</h2>
+        <p>I bridge the gap between robust data pipelines and seamless user experiences.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <section id="about" class="fade-in">
+        <h3>About Me</h3>
+        <p>I am currently engineering solutions at Amazon, with a strong focus on data science and backend infrastructure. I thrive on solving complex problems, whether that means building and training computer vision models or architecting full-stack applications. When I am away from the keyboard, I am likely training for my next 15-mile run.</p>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h3>Featured Projects</h3>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <h4>CFD Droplet Classification</h4>
+                <p><strong>Tech:</strong> Python, Clustering Algorithms</p>
+                <p>Developed a Python-based pipeline to read computational fluid dynamics simulation data, identify individual droplets, and perform clustering and visualization to analyze physical behaviors.</p>
+                <a href="#" class="project-link">View on GitHub &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <h4>Scalable Mobile Architecture</h4>
+                <p><strong>Tech:</strong> Flutter, AWS Cognito, AWS S3</p>
+                <p>Architected a cross-platform mobile application utilizing Flutter for the frontend, seamlessly integrated with AWS services to handle secure user authentication and robust cloud storage.</p>
+                <a href="#" class="project-link">View on GitHub &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Let's connect. <a href="mailto:your.email@example.com" class="highlight">Email Me</a></p>
+    </footer>
+
+    <script>
+        // Simple script for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
