@@ -1,0 +1,114 @@
+/* Base Styles */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --highlight: #00e5ff; /* Electric Blue */
+    --card-bg: #1e1e1e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 10%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1, h2, h3, h4 {
+    color: #ffffff;
+}
+
+.highlight {
+    color: var(--highlight);
+}
+
+/* Typography & Layout */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid var(--highlight);
+    color: var(--highlight);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--highlight);
+    color: var(--bg-color);
+}
+
+/* Sections & Cards */
+section {
+    padding: 100px 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 229, 255, 0.1);
+}
+
+.project-link {
+    color: var(--highlight);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 50px 0;
+    border-top: 1px solid #333;
+}
