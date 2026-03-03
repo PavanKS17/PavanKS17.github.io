@@ -5,56 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pavan | Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="hero fade-in">
-        <h1>Hi, I'm <span class="highlight">Pavan</span>.</h1>
-        <h2>Software Engineer specializing in AI, Machine Learning, and Scalable Architecture.</h2>
-        <p>I bridge the gap between robust data pipelines and seamless user experiences.</p>
-        <a href="#projects" class="btn">View My Work</a>
+
+    <nav>
+        <div class="logo">Pavan.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero reveal">
+        <div class="hero-content">
+            <h1>Architecting <span class="gradient-text">Intelligence.</span></h1>
+            <h2>Software Engineer at Amazon building robust AI and Data platforms.</h2>
+            <a href="#projects" class="btn primary-btn">Explore My Work</a>
+        </div>
     </header>
 
-    <section id="about" class="fade-in">
-        <h3>About Me</h3>
-        <p>I am currently engineering solutions at Amazon, with a strong focus on data science and backend infrastructure. I thrive on solving complex problems, whether that means building and training computer vision models or architecting full-stack applications. When I am away from the keyboard, I am likely training for my next 15-mile run.</p>
-    </section>
-
-    <section id="projects" class="fade-in">
-        <h3>Featured Projects</h3>
-        <div class="project-grid">
-            
-            <div class="project-card">
-                <h4>CFD Droplet Classification</h4>
-                <p><strong>Tech:</strong> Python, Clustering Algorithms</p>
-                <p>Developed a Python-based pipeline to read computational fluid dynamics simulation data, identify individual droplets, and perform clustering and visualization to analyze physical behaviors.</p>
-                <a href="#" class="project-link">View on GitHub &rarr;</a>
+    <section id="about" class="bento-grid container reveal">
+        <div class="bento-item span-2">
+            <h3>The Engineer</h3>
+            <p>I bridge the gap between heavy data processing and seamless user experiences. Currently engineering scalable solutions at Amazon, my focus lies in crafting robust backend architectures and deploying machine learning models.</p>
+        </div>
+        <div class="bento-item image-box" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800');">
             </div>
-
-            <div class="project-card">
-                <h4>Scalable Mobile Architecture</h4>
-                <p><strong>Tech:</strong> Flutter, AWS Cognito, AWS S3</p>
-                <p>Architected a cross-platform mobile application utilizing Flutter for the frontend, seamlessly integrated with AWS services to handle secure user authentication and robust cloud storage.</p>
-                <a href="#" class="project-link">View on GitHub &rarr;</a>
-            </div>
-
+        <div class="bento-item">
+            <h3>Off-Screen</h3>
+            <p>When I'm not writing Python or tuning clustering algorithms, I'm out hitting the pavement. Currently training hard to hit a 15-mile running milestone by March 11th.</p>
+        </div>
+        <div class="bento-item glass-box">
+            <h3>Core Stack</h3>
+            <ul class="skills-list">
+                <li>Python & ML</li>
+                <li>AWS Cloud Services</li>
+                <li>Flutter & Mobile</li>
+                <li>Data Architecture</li>
+            </ul>
         </div>
     </section>
 
-    <footer>
-        <p>Let's connect. <a href="mailto:your.email@example.com" class="highlight">Email Me</a></p>
+    <section id="projects" class="container reveal">
+        <h2 class="section-title">Featured Work</h2>
+        
+        <div class="tab-container">
+            <button class="tab-link active" onclick="openTab(event, 'AI')">AI & Data</button>
+            <button class="tab-link" onclick="openTab(event, 'FullStack')">Full Stack</button>
+        </div>
+
+        <div id="AI" class="tab-content active-tab">
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>CFD Droplet Classification</h3>
+                    <p class="tech-stack">Python | Clustering | Data Visualization</p>
+                    <p>Engineered a custom pipeline to process complex computational fluid dynamics data. The system accurately identifies individual droplets and utilizes advanced clustering algorithms to analyze physical behaviors within the simulation.</p>
+                    <a href="#" class="btn outline-btn">View Repository</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+        </div>
+
+        <div id="FullStack" class="tab-content">
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>Scalable Mobile Architecture</h3>
+                    <p class="tech-stack">Flutter | AWS Cognito | AWS S3</p>
+                    <p>Designed and developed a cross-platform mobile application utilizing Flutter. Seamlessly integrated with AWS infrastructure to handle secure, enterprise-grade user authentication and robust cloud object storage.</p>
+                    <a href="#" class="btn outline-btn">View Repository</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="reveal">
+        <h2>Let's Build Something Great.</h2>
+        <a href="mailto:your.email@example.com" class="btn primary-btn">Get In Touch</a>
     </footer>
 
     <script>
-        // Simple script for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+        // Scroll Reveal Animation Logic
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 }
             });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
         });
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Tab Switching Logic
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active-tab");
+            }
+            
+            // Remove active class from all buttons
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => { document.getElementById(tabName).classList.add("active-tab"); }, 10);
+            evt.currentTarget.className += " active";
+        }
     </script>
 </body>
 </html>
