@@ -329,8 +329,9 @@ nav {
 /* --- Visual Skills Grid --- */
 .skills-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Reduced minmax slightly to fit 3 columns cleanly on desktop */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -339,19 +340,20 @@ nav {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
+    overflow: hidden; /* Prevents internal elements from breaking the border */
 }
 
 .skill-category h4 {
     color: var(--accent-color);
     margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
 }
 
 .skill-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .skill-item {
@@ -359,9 +361,10 @@ nav {
     align-items: center;
     gap: 0.8rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Slightly smaller to fit keywords */
     color: var(--text-main);
     transition: transform 0.2s ease;
+    white-space: nowrap; /* Prevents text from stacking weirdly */
 }
 
 .skill-item:hover {
@@ -370,7 +373,7 @@ nav {
 }
 
 .skill-item i {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .text-main { color: var(--text-main); }
