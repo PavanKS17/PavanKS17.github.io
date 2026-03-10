@@ -10,13 +10,15 @@
 </head>
 <body>
 
+    <div class="mouse-aura"></div>
+
     <nav>
         <div class="logo">Pavan.</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Work</a>
+            <a href="#learning">Learning</a>
             <a href="#github">GitHub</a>
-            <a href="#writing">Writing</a>
         </div>
     </nav>
 
@@ -104,7 +106,6 @@
         <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Tracking my active certifications, upcoming sprints, and deep dives into next-generation AI.</p>
         
         <div class="timeline">
-            
             <div class="timeline-item tilt-card">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
@@ -144,9 +145,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
+
     <section id="skills" class="container reveal">
         <h2 class="section-title">Technical Arsenal</h2>
         
@@ -189,9 +190,7 @@
         
         <div class="github-stats-grid">
             <img src="https://github-readme-stats.vercel.app/api?username=PavanKS17&show_icons=true&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="GitHub Stats" class="tilt-card github-img" />
-            
             <img src="https://github-readme-streak-stats.herokuapp.com/?user=PavanKS17&theme=radical&background=1e1e1e&hide_border=true&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" class="tilt-card github-img" />
-            
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PavanKS17&layout=compact&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="Top Languages" class="tilt-card github-img" />
         </div>
     </section>
@@ -216,7 +215,7 @@
 
     <footer class="reveal">
         <h2>Let's Build Something Great.</h2>
-        <a href="mailto:your.email@example.com" class="btn primary-btn">Get In Touch</a>
+        <a href="mailto:your.email@example.com" class="btn primary-btn" style="margin-top: 2rem;">Get In Touch</a>
     </footer>
 
     <script>
@@ -277,6 +276,25 @@
             
             card.addEventListener('mouseenter', () => {
                 card.style.transition = 'transform 0.1s ease'; 
+            });
+        });
+
+        // 4. Dynamic Ambient Aura Tracker
+        const aura = document.querySelector('.mouse-aura');
+        
+        document.addEventListener('mousemove', (e) => {
+            aura.style.left = `${e.clientX}px`;
+            aura.style.top = `${e.clientY}px`;
+        });
+
+        const interactiveElements = document.querySelectorAll('a, button, .tilt-card, .tab-link, .article-card');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                aura.classList.add('interactive-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                aura.classList.remove('interactive-hover');
             });
         });
     </script>
