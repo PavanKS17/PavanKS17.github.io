@@ -380,3 +380,75 @@ footer {
         display: none; /* Can be updated to a hamburger menu later if needed */
     }
 }
+
+/* --- Learning Timeline --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    /* Added perspective for 3D tilt */
+    transform-style: preserve-3d;
+}
+
+.timeline-item:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.05), inset 0 0 20px rgba(0, 240, 255, 0.02);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.45rem;
+    top: 2.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+    z-index: 2;
+}
+
+.timeline-content h3 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    /* Transform Z makes the text "pop" out during 3D tilt */
+    transform: translateZ(20px); 
+}
+
+/* --- Premium Status Badges --- */
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    transform: translateZ(10px);
+}
+
+.badge.in-progress { background: rgba(0, 240, 255, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); }
+.badge.upcoming { background: rgba(112, 0, 255, 0.1); color: #b070ff; border: 1px solid #7000ff; }
+.badge.planned { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid var(--text-muted); }
