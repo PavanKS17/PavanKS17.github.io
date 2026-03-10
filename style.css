@@ -52,7 +52,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background: rgba(10, 10, 12, 0.8);
-    backdrop-filter: blur(12px); /* Frosted glass effect */
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--glass-border);
@@ -256,40 +256,138 @@ nav {
     background-position: center;
 }
 
-/* --- GitHub Section --- */
-.github-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 2fr; 
-    gap: 1.5rem; 
+/* --- Learning Timeline --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
 }
 
-.github-stat-card, .github-repo-card { 
-    background: var(--glass-bg); 
-    border: 1px solid var(--glass-border); 
-    border-radius: 20px; 
-    padding: 2.5rem; 
-    transition: transform 0.3s ease, border-color 0.3s ease; 
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    border-radius: 2px;
 }
 
-.github-stat-card:hover, .github-repo-card:hover { 
-    transform: translateY(-5px); 
-    border-color: rgba(255, 255, 255, 0.2); 
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    transform-style: preserve-3d;
 }
 
-.repo-header { 
-    display: flex; 
-    align-items: center; 
-    gap: 1rem; 
-    margin-bottom: 1rem; 
+.timeline-item:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.05), inset 0 0 20px rgba(0, 240, 255, 0.02);
 }
 
-.repo-meta { 
-    margin-top: 1.5rem; 
-    font-size: 0.85rem; 
-    color: var(--text-muted); 
-    display: flex; 
-    gap: 1.5rem; 
+.timeline-dot {
+    position: absolute;
+    left: -2.45rem;
+    top: 2.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--bg-dark);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+    z-index: 2;
+}
+
+.timeline-content h3 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    transform: translateZ(20px); 
+}
+
+/* --- Premium Status Badges --- */
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    transform: translateZ(10px);
+}
+
+.badge.in-progress { background: rgba(0, 240, 255, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); }
+.badge.upcoming { background: rgba(112, 0, 255, 0.1); color: #b070ff; border: 1px solid #7000ff; }
+.badge.planned { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid var(--text-muted); }
+
+/* --- Visual Skills Grid --- */
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+
+.skill-category h4 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+    color: var(--accent-color);
+}
+
+.skill-item i {
+    font-size: 1.8rem;
+}
+
+.text-main { color: var(--text-main); }
+
+/* --- GitHub Section --- */
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.github-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
 /* --- Writing / Articles Section --- */
@@ -359,162 +457,36 @@ footer {
     transform: translateY(0); 
 }
 
+/* --- Dynamic Ambient Aura --- */
+.mouse-aura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(112, 0, 255, 0.03) 40%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen; 
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+    will-change: left, top, width, height;
+}
+
+.mouse-aura.interactive-hover {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, rgba(112, 0, 255, 0.1) 50%, rgba(0,0,0,0) 80%);
+}
+
 /* --- Responsive Adjustments (Mobile Fixes) --- */
 @media (max-width: 768px) {
-    .bento-grid { 
-        grid-template-columns: 1fr; 
-    }
-    .span-2 { 
-        grid-column: span 1; 
-    }
-    .project-showcase { 
-        grid-template-columns: 1fr; 
-    }
-    .project-image { 
-        min-height: 250px; 
-    }
-    .github-grid { 
-        grid-template-columns: 1fr; 
-    }
-    .nav-links {
-        display: none; /* Can be updated to a hamburger menu later if needed */
-    }
-}
-
-/* --- Learning Timeline --- */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-left: 2rem;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent-color), transparent);
-    border-radius: 2px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 2.5rem;
-    transition: box-shadow 0.4s ease, border-color 0.4s ease;
-    /* Added perspective for 3D tilt */
-    transform-style: preserve-3d;
-}
-
-.timeline-item:hover {
-    border-color: rgba(0, 240, 255, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.05), inset 0 0 20px rgba(0, 240, 255, 0.02);
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -2.45rem;
-    top: 2.5rem;
-    width: 1rem;
-    height: 1rem;
-    background: var(--bg-dark);
-    border: 2px solid var(--accent-color);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-color);
-    z-index: 2;
-}
-
-.timeline-content h3 {
-    margin-top: 1rem;
-    font-size: 1.4rem;
-    /* Transform Z makes the text "pop" out during 3D tilt */
-    transform: translateZ(20px); 
-}
-
-/* --- Premium Status Badges --- */
-.badge {
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    transform: translateZ(10px);
-}
-
-.badge.in-progress { background: rgba(0, 240, 255, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); }
-.badge.upcoming { background: rgba(112, 0, 255, 0.1); color: #b070ff; border: 1px solid #7000ff; }
-.badge.planned { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid var(--text-muted); }
-
-
-/* --- Visual Skills Grid --- */
-.skills-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.skill-category {
-    padding: 2rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-}
-
-.skill-category h4 {
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text-main);
-    transition: transform 0.2s ease;
-}
-
-.skill-item:hover {
-    transform: translateX(5px);
-    color: var(--accent-color);
-}
-
-.skill-item i {
-    font-size: 1.8rem;
-}
-
-/* Make sure the text-main icon overrides work */
-.text-main { color: var(--text-main); }
-
-/* --- GitHub Stats Image Grid --- */
-.github-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.github-img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    .bento-grid { grid-template-columns: 1fr; }
+    .span-2 { grid-column: span 1; }
+    .project-showcase { grid-template-columns: 1fr; }
+    .project-image { min-height: 250px; }
+    .nav-links { display: none; }
+    /* Hide custom cursor on mobile to prevent scrolling bugs */
+    .mouse-aura { display: none; }
 }
