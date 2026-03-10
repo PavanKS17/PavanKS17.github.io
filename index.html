@@ -25,16 +25,15 @@
     <header class="hero reveal">
         <div class="hero-content">
             <h1>Architecting <span class="gradient-text">Intelligence.</span></h1>
-            <h2>Machine Learning Engineer & Full-Stack Architect. Bridging Computer Vision, Data Engineering, and Scalable MedTech Solutions.</h2>
+            <h2>End-to-End AI & Software Architect. Building production-grade computer vision models and the scalable cloud infrastructure required to power them.</h2>
             <a href="#projects" class="btn primary-btn">Explore My Work</a>
         </div>
     </header>
 
     <section id="about" class="bento-grid container reveal">
-        
         <div class="bento-item span-2">
             <h3>The AI Architect</h3>
-            <p>I engineer end-to-end systems that bring artificial intelligence into the physical world. With a strong foundation in MedTech, I specialize in training advanced vision architectures—including ViTs and Diffusion Models [cite: 102]—and deploying them across robust, edge-to-cloud Docker and AWS infrastructures[cite: 58, 121]. From data ingestion to inference, I build systems that scale.</p>
+            <p>I engineer end-to-end systems that bring artificial intelligence into the physical world. With a strong foundation in MedTech, I specialize in training advanced vision architectures—including ViTs and Diffusion Models [cite: 102]—and deploying them across robust, edge-to-cloud Docker and AWS infrastructures[cite: 101, 121]. From data ingestion to inference, I build systems that scale.</p>
         </div>
         
         <div class="bento-item image-box tilt-card" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800');">
@@ -42,7 +41,7 @@
 
         <div class="bento-item glass-box">
             <h3>Off-Screen</h3>
-            <p>When I am not optimizing FastAPI microservices[cite: 105], I am out hitting the pavement. I am currently training hard to hit a 15-mile running milestone by March 11th.</p>
+            <p>When I am not optimizing FastAPI microservices, I am out hitting the pavement. I am currently training hard to hit a 15-mile running milestone by March 11th.</p>
         </div>
         
         <div class="bento-item span-2 glass-box">
@@ -55,47 +54,24 @@
                 <span class="tag">RAG Pipelines</span>
             </div>
         </div>
-        
     </section>
 
     <section id="projects" class="container reveal">
         <h2 class="section-title">Featured Work & Research</h2>
         
         <div class="tab-container">
-            <button class="tab-link active" onclick="openTab(event, 'AI')">Computer Vision & AI</button>
-            <button class="tab-link" onclick="openTab(event, 'Infrastructure')">Software Infrastructure</button>
+            <button class="tab-link active" onclick="openTab(event, 'Infrastructure')">Software Infrastructure</button>
+            <button class="tab-link" onclick="openTab(event, 'AI')">Computer Vision & AI</button>
             <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
         </div>
 
-        <div id="AI" class="tab-content active-tab">
-            <div class="project-showcase" style="margin-bottom: 3rem;">
-                <div class="project-info">
-                    <h3>Edge-to-Cloud Medical Inference</h3>
-                    <p class="tech-stack">ViT | Diffusion Models | FastAPI | Docker</p>
-                    <p>Architected computer vision pipelines processing 10,000+ daily medical scans, effectively reducing manual review time by 40%. Deployed concurrent FastAPI microservices via Docker, optimizing GPU memory to maintain sub-200ms latency[cite: 105].</p>
-                    <a href="#" class="btn outline-btn">View Architecture</a>
-                </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800');"></div>
-            </div>
-
-            <div class="project-showcase">
-                <div class="project-info">
-                    <h3>Agricultural Disease Detection</h3>
-                    <p class="tech-stack">YOLO | Python | Mobile Deployment</p>
-                    <p>Trained YOLO object detection models to classify crop diseases on a custom dataset of 50,000+ images, achieving 94% mAP[cite: 110]. Developed an end-to-end diagnostic app deployed to 2,000+ partner farmers[cite: 111].</p>
-                    <a href="#" class="btn outline-btn">View Case Study</a>
-                </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800');"></div>
-            </div>
-        </div>
-
-        <div id="Infrastructure" class="tab-content">
+        <div id="Infrastructure" class="tab-content active-tab" style="display: block;">
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
                     <h3>Global Telemetry Backend</h3>
                     <p class="tech-stack">Java | Spring Boot | MySQL | Azure</p>
                     <p>Engineered a highly available Java/Spring Boot backend processing 1M+ daily telemetry events[cite: 112]. Designed to support 10,000+ users with 99.9% uptime while optimizing SQL queries for high-volume transactional data[cite: 71, 73].</p>
-                    <a href="#" class="btn outline-btn">View Repository</a>
+                    <a href="#" class="btn outline-btn">View Architecture</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
@@ -108,6 +84,28 @@
                     <a href="#" class="btn outline-btn">View Repository</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+        </div>
+
+        <div id="AI" class="tab-content">
+            <div class="project-showcase" style="margin-bottom: 3rem;">
+                <div class="project-info">
+                    <h3>End-to-End MedTech Diagnostic Platform</h3>
+                    <p class="tech-stack">ViT | Hardware Integration | FastAPI | Cloud Infrastructure</p>
+                    <p>Solo-architected an edge-to-cloud diagnostic system from the ground up[cite: 101]. Successfully bridged physical hardware capture devices with a secure cloud backend, engineering custom Vision Transformers (ViT) to perform high-accuracy cervical imagery segmentation[cite: 9]. Owned the complete product lifecycle, integrating intuitive frontend interfaces with concurrent FastAPI microservices [cite: 8, 105], reducing manual clinical review time by 40%[cite: 101].</p>
+                    <a href="#" class="btn outline-btn">View Case Study</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>Agricultural Disease Detection</h3>
+                    <p class="tech-stack">YOLO | Python | Mobile Deployment</p>
+                    <p>Trained YOLO object detection models to classify crop diseases on a custom dataset of 50,000+ images, achieving 94% mAP[cite: 110]. Developed an end-to-end diagnostic app deployed to 2,000+ partner farmers[cite: 111].</p>
+                    <a href="#" class="btn outline-btn">View Deployment</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
 
@@ -135,73 +133,59 @@
     </section>
 
     <section id="learning" class="container reveal">
-        <h2 class="section-title">Continuous Learning</h2>
-        <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Tracking my active certifications, upcoming sprints, and deep dives into next-generation AI.</p>
-        
-        <div class="timeline">
-            <div class="timeline-item tilt-card">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="badge in-progress">Active Deep Dive</span>
-                    <h3>Advanced AI Orchestration & Agentic Systems</h3>
-                    <p>Mastering agentic workflows, complex LLM routing, and context management across distributed systems to build autonomous AI tools.</p>
-                    <div class="tags-container">
-                        <span class="tag">Agentic AI</span>
-                        <span class="tag">LangGraph</span>
-                        <span class="tag">MCP</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item tilt-card">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="badge upcoming">Upcoming: Mar 18 & 25, 2026</span>
-                    <h3>IBM SkillsBuild Data and AI Sprint</h3>
-                    <p>Fast-tracking fundamentals in enterprise data architecture, machine learning ecosystems, and scalable AI deployment strategies.</p>
-                    <div class="tags-container">
-                        <span class="tag">Data Architecture</span>
-                        <span class="tag">AI Fundamentals</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item tilt-card">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="badge planned">Planned Certification</span>
-                    <h3>AWS Certified Machine Learning – Specialty</h3>
-                    <p>Validating deep technical expertise in building, training, tuning, and deploying large-scale ML models on the AWS Cloud infrastructure.</p>
-                    <div class="tags-container">
-                        <span class="tag">AWS Cloud</span>
-                        <span class="tag">MLOps</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <section id="skills" class="container reveal">
         <h2 class="section-title">Technical Arsenal</h2>
         
         <div class="skills-wrapper">
             <div class="skill-category glass-box tilt-card">
-                <h4>Computer Vision & ML</h4>
+                <h4>Languages</h4>
                 <div class="skill-grid">
                     <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-                    <div class="skill-item"><i class="devicon-pytorch-plain colored"></i><span>PyTorch</span></div>
-                    <div class="skill-item"><i class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></div>
-                    <div class="skill-item"><i class="devicon-opencv-plain colored"></i><span>OpenCV</span></div>
+                    <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+                    <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
                 </div>
             </div>
 
             <div class="skill-category glass-box tilt-card">
-                <h4>Cloud & Backend</h4>
+                <h4>Machine Learning</h4>
                 <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java/Spring</span></div>
+                    <div class="skill-item"><i class="devicon-pytorch-plain colored"></i><span>PyTorch</span></div>
+                    <div class="skill-item"><i class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></div>
+                    <div class="skill-item"><i class="devicon-opencv-plain colored"></i><span>OpenCV</span></div>
+                    <div class="skill-item"><i class="devicon-jupyter-plain colored"></i><span>Jupyter</span></div>
+                </div>
+            </div>
+
+            <div class="skill-category glass-box tilt-card">
+                <h4>Backend APIs</h4>
+                <div class="skill-grid">
+                    <div class="skill-item"><i class="devicon-spring-original colored"></i><span>Spring Boot</span></div>
+                    <div class="skill-item"><i class="devicon-fastapi-plain colored"></i><span>FastAPI</span></div>
+                    <div class="skill-item"><i class="devicon-flask-original text-main"></i><span>Flask</span></div>
+                    <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+                </div>
+            </div>
+
+            <div class="skill-category glass-box tilt-card">
+                <h4>Cloud & DevOps</h4>
+                <div class="skill-grid">
                     <div class="skill-item"><i class="devicon-amazonwebservices-original colored"></i><span>AWS</span></div>
                     <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+                    <div class="skill-item"><i class="devicon-kubernetes-plain colored"></i><span>Kubernetes</span></div>
+                    <div class="skill-item"><i class="devicon-linux-plain text-main"></i><span>Linux</span></div>
+                </div>
+            </div>
+
+            <div class="skill-category glass-box tilt-card">
+                <h4>Databases</h4>
+                <div class="skill-grid">
                     <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                    <div class="skill-item"><i class="devicon-amazonwebservices-original colored"></i><span>AWS S3</span></div>
                 </div>
             </div>
 
@@ -209,109 +193,10 @@
                 <h4>Frontend & Mobile</h4>
                 <div class="skill-grid">
                     <div class="skill-item"><i class="devicon-react-original colored"></i><span>ReactJS</span></div>
-                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                    <div class="skill-item"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
                     <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
                     <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="github" class="container reveal">
-        <h2 class="section-title">Open Source Activity</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Real-time statistics pulled directly from my GitHub profile.</p>
-        
-        <div class="github-stats-grid">
-            <img src="https://github-readme-stats.vercel.app/api?username=PavanKS17&show_icons=true&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="GitHub Stats" class="tilt-card github-img" />
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=PavanKS17&theme=radical&background=1e1e1e&hide_border=true&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" class="tilt-card github-img" />
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PavanKS17&layout=compact&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="Top Languages" class="tilt-card github-img" />
-        </div>
-    </section>
-
-    <footer class="reveal">
-        <h2>Let's Build Something Great.</h2>
-        <a href="mailto:pavansrinivas2@gmail.com" class="btn primary-btn" style="margin-top: 2rem;">Get In Touch</a>
-    </footer>
-
-    <script>
-        // 1. Scroll Reveal Animation Logic
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // 2. Tab Switching Logic
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active-tab");
-            }
-            tablinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            setTimeout(() => { document.getElementById(tabName).classList.add("active-tab"); }, 10);
-            evt.currentTarget.className += " active";
-        }
-
-        // 3. Premium 3D Hover Tilt Effect
-        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item, .article-card, .github-stat-card, .github-repo-card');
-        
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; 
-                const y = e.clientY - rect.top;  
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -5; 
-                const rotateY = ((x - centerX) / centerX) * 5;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                card.style.transition = 'transform 0.5s ease';
-            });
-            
-            card.addEventListener('mouseenter', () => {
-                card.style.transition = 'transform 0.1s ease'; 
-            });
-        });
-
-        // 4. Dynamic Ambient Aura Tracker
-        const aura = document.querySelector('.mouse-aura');
-        
-        document.addEventListener('mousemove', (e) => {
-            aura.style.left = `${e.clientX}px`;
-            aura.style.top = `${e.clientY}px`;
-        });
-
-        const interactiveElements = document.querySelectorAll('a, button, .tilt-card, .tab-link, .article-card');
-        
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                aura.classList.add('interactive-hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                aura.classList.remove('interactive-hover');
-            });
-        });
-    </script>
-</body>
-</html>
