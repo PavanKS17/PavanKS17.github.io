@@ -98,6 +98,55 @@
         </div>
     </section>
 
+    <section id="learning" class="container reveal">
+        <h2 class="section-title">Continuous Learning</h2>
+        <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Tracking my active certifications, upcoming sprints, and deep dives into next-generation AI.</p>
+        
+        <div class="timeline">
+            
+            <div class="timeline-item tilt-card">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="badge in-progress">Active Deep Dive</span>
+                    <h3>Advanced AI Orchestration & Agentic Systems</h3>
+                    <p>Mastering agentic workflows, complex LLM routing, and context management across distributed systems to build autonomous AI tools.</p>
+                    <div class="tags-container">
+                        <span class="tag">Agentic AI</span>
+                        <span class="tag">LangGraph</span>
+                        <span class="tag">MCP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item tilt-card">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="badge upcoming">Upcoming: Mar 18 & 25, 2026</span>
+                    <h3>IBM SkillsBuild Data and AI Sprint</h3>
+                    <p>Fast-tracking fundamentals in enterprise data architecture, machine learning ecosystems, and scalable AI deployment strategies.</p>
+                    <div class="tags-container">
+                        <span class="tag">Data Architecture</span>
+                        <span class="tag">AI Fundamentals</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item tilt-card">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="badge planned">Planned Certification</span>
+                    <h3>AWS Certified Machine Learning – Specialty</h3>
+                    <p>Validating deep technical expertise in building, training, tuning, and deploying large-scale ML models on the AWS Cloud infrastructure.</p>
+                    <div class="tags-container">
+                        <span class="tag">AWS Cloud</span>
+                        <span class="tag">MLOps</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="github" class="container reveal">
         <h2 class="section-title">Open Source & Activity</h2>
         <div class="github-grid">
@@ -179,3 +228,65 @@
     </script>
 </body>
 </html>
+
+<script>
+        // 1. Scroll Reveal Animation Logic
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // 2. Tab Switching Logic
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active-tab");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => { document.getElementById(tabName).classList.add("active-tab"); }, 10);
+            evt.currentTarget.className += " active";
+        }
+
+        // 3. Premium 3D Hover Tilt Effect
+        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item, .article-card, .github-stat-card, .github-repo-card');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x position within the element.
+                const y = e.clientY - rect.top;  // y position within the element.
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max rotation 5 deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                card.style.transition = 'transform 0.5s ease';
+            });
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'transform 0.1s ease'; // Snappy entrance
+            });
+        });
+    </script>
