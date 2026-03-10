@@ -452,3 +452,69 @@ footer {
 .badge.in-progress { background: rgba(0, 240, 255, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); }
 .badge.upcoming { background: rgba(112, 0, 255, 0.1); color: #b070ff; border: 1px solid #7000ff; }
 .badge.planned { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid var(--text-muted); }
+
+
+/* --- Visual Skills Grid --- */
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+
+.skill-category h4 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+    color: var(--accent-color);
+}
+
+.skill-item i {
+    font-size: 1.8rem;
+}
+
+/* Make sure the text-main icon overrides work */
+.text-main { color: var(--text-main); }
+
+/* --- GitHub Stats Image Grid --- */
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.github-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
