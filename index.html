@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan | Software Engineer</title>
+    <title>Srinivasa Pavan | AI Architect</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -25,19 +25,24 @@
     <header class="hero reveal">
         <div class="hero-content">
             <h1>Architecting <span class="gradient-text">Intelligence.</span></h1>
-            <h2>Founding Engineer building AICtrlNet & HitLai. Specializing in AI Orchestration and Scalable Architecture.</h2>
+            <h2>Machine Learning Engineer & Full-Stack Architect. Bridging Computer Vision, Data Engineering, and Scalable MedTech Solutions.</h2>
             <a href="#projects" class="btn primary-btn">Explore My Work</a>
         </div>
     </header>
 
     <section id="about" class="bento-grid container reveal">
+        
         <div class="bento-item span-2">
-            <h3>The Engineer</h3>
-            <p>I bridge the gap between heavy data processing and seamless user experiences. As a Founding Engineer, my focus lies in crafting robust backend architectures, deploying machine learning models, and building scalable platforms from the ground up.</p>
+            <h3>The AI Architect</h3>
+            <p>I engineer end-to-end systems that bring artificial intelligence into the physical world. With a strong foundation in MedTech, I specialize in training advanced vision architectures—including ViTs and Diffusion Models [cite: 102]—and deploying them across robust, edge-to-cloud Docker and AWS infrastructures[cite: 58, 121]. From data ingestion to inference, I build systems that scale.</p>
         </div>
+        
+        <div class="bento-item image-box tilt-card" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800');">
+        </div>
+
         <div class="bento-item glass-box">
             <h3>Off-Screen</h3>
-            <p>When I'm not writing Python, I'm out hitting the pavement. Currently training hard to hit a 15-mile running milestone by March 11th.</p>
+            <p>When I am not optimizing FastAPI microservices[cite: 105], I am out hitting the pavement. I am currently training hard to hit a 15-mile running milestone by March 11th.</p>
         </div>
         
         <div class="bento-item span-2 glass-box">
@@ -51,52 +56,80 @@
             </div>
         </div>
         
-        <div class="bento-item image-box" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800');">
-            </div>
     </section>
 
     <section id="projects" class="container reveal">
         <h2 class="section-title">Featured Work & Research</h2>
         
         <div class="tab-container">
-            <button class="tab-link active" onclick="openTab(event, 'AI')">AI & Data</button>
-            <button class="tab-link" onclick="openTab(event, 'FullStack')">Full Stack</button>
+            <button class="tab-link active" onclick="openTab(event, 'AI')">Computer Vision & AI</button>
+            <button class="tab-link" onclick="openTab(event, 'Infrastructure')">Software Infrastructure</button>
             <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
         </div>
 
         <div id="AI" class="tab-content active-tab">
+            <div class="project-showcase" style="margin-bottom: 3rem;">
+                <div class="project-info">
+                    <h3>Edge-to-Cloud Medical Inference</h3>
+                    <p class="tech-stack">ViT | Diffusion Models | FastAPI | Docker</p>
+                    <p>Architected computer vision pipelines processing 10,000+ daily medical scans, effectively reducing manual review time by 40%. Deployed concurrent FastAPI microservices via Docker, optimizing GPU memory to maintain sub-200ms latency[cite: 105].</p>
+                    <a href="#" class="btn outline-btn">View Architecture</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+
             <div class="project-showcase">
                 <div class="project-info">
-                    <h3>CFD Droplet Classification</h3>
-                    <p class="tech-stack">Python | Simulation Pipelines | Clustering</p>
-                    <p>Engineered a custom simulation-based image pipeline to process complex computational fluid dynamics data. The system accurately identifies individual droplets and utilizes advanced clustering to analyze physical behaviors.</p>
-                    <a href="#" class="btn outline-btn">View Repository</a>
+                    <h3>Agricultural Disease Detection</h3>
+                    <p class="tech-stack">YOLO | Python | Mobile Deployment</p>
+                    <p>Trained YOLO object detection models to classify crop diseases on a custom dataset of 50,000+ images, achieving 94% mAP[cite: 110]. Developed an end-to-end diagnostic app deployed to 2,000+ partner farmers[cite: 111].</p>
+                    <a href="#" class="btn outline-btn">View Case Study</a>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
 
-        <div id="FullStack" class="tab-content">
-            <div class="project-showcase">
+        <div id="Infrastructure" class="tab-content">
+            <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
-                    <h3>Scalable Mobile Architecture</h3>
-                    <p class="tech-stack">Flutter | AWS Cognito | AWS S3</p>
-                    <p>Designed and developed a cross-platform mobile application utilizing Flutter. Seamlessly integrated with AWS infrastructure to handle secure, enterprise-grade user authentication and robust cloud object storage.</p>
+                    <h3>Global Telemetry Backend</h3>
+                    <p class="tech-stack">Java | Spring Boot | MySQL | Azure</p>
+                    <p>Engineered a highly available Java/Spring Boot backend processing 1M+ daily telemetry events[cite: 112]. Designed to support 10,000+ users with 99.9% uptime while optimizing SQL queries for high-volume transactional data[cite: 71, 73].</p>
                     <a href="#" class="btn outline-btn">View Repository</a>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>Code Collaboration Platform</h3>
+                    <p class="tech-stack">ReactJS | Flask | AWS SQS & Lambda</p>
+                    <p>Developed a centralized platform enabling transactional workflows for 200+ repositories[cite: 64]. Built automated AWS data pipelines (SQS, Lambda, S3) to ingest and process 5TB+ of monthly metadata[cite: 116].</p>
+                    <a href="#" class="btn outline-btn">View Repository</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
 
         <div id="Publications" class="tab-content">
+            <div class="project-showcase" style="margin-bottom: 3rem;">
+                <div class="project-info">
+                    <h3>AIAA SciTech Forum Publication</h3>
+                    <p class="tech-stack">U-Net | Image Segmentation | Fluid Dynamics</p>
+                    <p>Published research on the "Characterization of Droplet Shapes from Atomizing Spray Liquid Jet in Crossflow via Machine Learning"[cite: 142]. Developed a high-precision pipeline utilizing U-Net for automated segmentation and morphological characterization[cite: 134].</p>
+                    <a href="https://doi.org/10.2514/6.2026-1554" target="_blank" class="btn outline-btn">Read Paper (DOI)</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+
             <div class="project-showcase">
                 <div class="project-info">
                     <h3>Survival Prediction for Grade-IV Brain Tumors</h3>
-                    <p class="tech-stack">MAEMI Models | Clinical Data Analysis</p>
-                    <p>Published research detailing a novel approach to survival prediction. Utilizing MAEMI models, the methodology achieved an 82% accuracy rate, significantly outperforming traditional methods which plateaued at 70%.</p>
-                    <a href="#" class="btn outline-btn">Read Publication</a>
+                    <p class="tech-stack">MAEMI | CNNs | Generative Adversarial Networks</p>
+                    <p>Implemented Masked Autoencoders (MAEMI) for MRI representation learning, achieving 82% accuracy on downstream survival prediction tasks, significantly outperforming standard Random Forest and SVM baselines[cite: 140].</p>
+                    <a href="#" class="btn outline-btn">Review Research</a>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
     </section>
@@ -153,30 +186,30 @@
         
         <div class="skills-wrapper">
             <div class="skill-category glass-box tilt-card">
-                <h4>AI & Data</h4>
+                <h4>Computer Vision & ML</h4>
                 <div class="skill-grid">
                     <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-                    <div class="skill-item"><i class="devicon-jupyter-plain colored"></i><span>Jupyter</span></div>
-                    <div class="skill-item"><i class="devicon-pandas-plain colored"></i><span>Pandas</span></div>
                     <div class="skill-item"><i class="devicon-pytorch-plain colored"></i><span>PyTorch</span></div>
+                    <div class="skill-item"><i class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></div>
+                    <div class="skill-item"><i class="devicon-opencv-plain colored"></i><span>OpenCV</span></div>
                 </div>
             </div>
 
             <div class="skill-category glass-box tilt-card">
                 <h4>Cloud & Backend</h4>
                 <div class="skill-grid">
+                    <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java/Spring</span></div>
                     <div class="skill-item"><i class="devicon-amazonwebservices-original colored"></i><span>AWS</span></div>
-                    <div class="skill-item"><i class="devicon-flask-original text-main"></i><span>Flask</span></div>
-                    <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
                     <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+                    <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
                 </div>
             </div>
 
             <div class="skill-category glass-box tilt-card">
                 <h4>Frontend & Mobile</h4>
                 <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
-                    <div class="skill-item"><i class="devicon-react-original colored"></i><span>React</span></div>
+                    <div class="skill-item"><i class="devicon-react-original colored"></i><span>ReactJS</span></div>
+                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
                     <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
                     <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
                 </div>
@@ -195,27 +228,9 @@
         </div>
     </section>
 
-    <section id="writing" class="container reveal">
-        <h2 class="section-title">Writing & Insights</h2>
-        <div class="articles-grid">
-            <a href="https://linkedin.com/in/srinivasa-pavan00" target="_blank" class="article-card">
-                <div class="article-date">March 2026</div>
-                <h3>Mastering AI Orchestration with LangGraph</h3>
-                <p>A deep dive into building agentic workflows and managing context in complex LLM applications.</p>
-                <span class="read-more">Read on LinkedIn &rarr;</span>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-date">February 2026</div>
-                <h3>From Full-Stack to Founding Engineer</h3>
-                <p>Lessons learned while architecting the foundational machine learning systems for AICtrlNet.</p>
-                <span class="read-more">Read Article &rarr;</span>
-            </a>
-        </div>
-    </section>
-
     <footer class="reveal">
         <h2>Let's Build Something Great.</h2>
-        <a href="mailto:your.email@example.com" class="btn primary-btn" style="margin-top: 2rem;">Get In Touch</a>
+        <a href="mailto:pavansrinivas2@gmail.com" class="btn primary-btn" style="margin-top: 2rem;">Get In Touch</a>
     </footer>
 
     <script>
