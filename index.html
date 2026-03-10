@@ -14,14 +14,15 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Work</a>
-            <a href="#contact">Contact</a>
+            <a href="#github">GitHub</a>
+            <a href="#writing">Writing</a>
         </div>
     </nav>
 
     <header class="hero reveal">
         <div class="hero-content">
             <h1>Architecting <span class="gradient-text">Intelligence.</span></h1>
-            <h2>Software Engineer at Amazon building robust AI and Data platforms.</h2>
+            <h2>Founding Engineer building AICtrlNet & HitLai. Specializing in AI Orchestration and Scalable Architecture.</h2>
             <a href="#projects" class="btn primary-btn">Explore My Work</a>
         </div>
     </header>
@@ -29,39 +30,43 @@
     <section id="about" class="bento-grid container reveal">
         <div class="bento-item span-2">
             <h3>The Engineer</h3>
-            <p>I bridge the gap between heavy data processing and seamless user experiences. Currently engineering scalable solutions at Amazon, my focus lies in crafting robust backend architectures and deploying machine learning models.</p>
-        </div>
-        <div class="bento-item image-box" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800');">
-            </div>
-        <div class="bento-item">
-            <h3>Off-Screen</h3>
-            <p>When I'm not writing Python or tuning clustering algorithms, I'm out hitting the pavement. Currently training hard to hit a 15-mile running milestone by March 11th.</p>
+            <p>I bridge the gap between heavy data processing and seamless user experiences. As a Founding Engineer, my focus lies in crafting robust backend architectures, deploying machine learning models, and building scalable platforms from the ground up.</p>
         </div>
         <div class="bento-item glass-box">
-            <h3>Core Stack</h3>
-            <ul class="skills-list">
-                <li>Python & ML</li>
-                <li>AWS Cloud Services</li>
-                <li>Flutter & Mobile</li>
-                <li>Data Architecture</li>
-            </ul>
+            <h3>Off-Screen</h3>
+            <p>When I'm not writing Python, I'm out hitting the pavement. Currently training hard to hit a 15-mile running milestone by March 11th.</p>
         </div>
+        
+        <div class="bento-item span-2 glass-box">
+            <h3>Currently Learning</h3>
+            <p>Constantly expanding my stack. Right now, my deep dives are focused on:</p>
+            <div class="tags-container">
+                <span class="tag">AI Orchestration</span>
+                <span class="tag">LangChain & LangGraph</span>
+                <span class="tag">Model Context Protocol (MCP)</span>
+                <span class="tag">RAG Pipelines</span>
+            </div>
+        </div>
+        
+        <div class="bento-item image-box" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800');">
+            </div>
     </section>
 
     <section id="projects" class="container reveal">
-        <h2 class="section-title">Featured Work</h2>
+        <h2 class="section-title">Featured Work & Research</h2>
         
         <div class="tab-container">
             <button class="tab-link active" onclick="openTab(event, 'AI')">AI & Data</button>
             <button class="tab-link" onclick="openTab(event, 'FullStack')">Full Stack</button>
+            <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
         </div>
 
         <div id="AI" class="tab-content active-tab">
             <div class="project-showcase">
                 <div class="project-info">
                     <h3>CFD Droplet Classification</h3>
-                    <p class="tech-stack">Python | Clustering | Data Visualization</p>
-                    <p>Engineered a custom pipeline to process complex computational fluid dynamics data. The system accurately identifies individual droplets and utilizes advanced clustering algorithms to analyze physical behaviors within the simulation.</p>
+                    <p class="tech-stack">Python | Simulation Pipelines | Clustering</p>
+                    <p>Engineered a custom simulation-based image pipeline to process complex computational fluid dynamics data. The system accurately identifies individual droplets and utilizes advanced clustering to analyze physical behaviors.</p>
                     <a href="#" class="btn outline-btn">View Repository</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800');"></div>
@@ -79,9 +84,62 @@
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
+
+        <div id="Publications" class="tab-content">
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>Survival Prediction for Grade-IV Brain Tumors</h3>
+                    <p class="tech-stack">MAEMI Models | Clinical Data Analysis</p>
+                    <p>Published research detailing a novel approach to survival prediction. Utilizing MAEMI models, the methodology achieved an 82% accuracy rate, significantly outperforming traditional methods which plateaued at 70%.</p>
+                    <a href="#" class="btn outline-btn">Read Publication</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+        </div>
     </section>
 
-    <footer id="contact" class="reveal">
+    <section id="github" class="container reveal">
+        <h2 class="section-title">Open Source & Activity</h2>
+        <div class="github-grid">
+            <div class="github-stat-card">
+                <h4>github.com/PavanKS17</h4>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Explore my public repositories, latest commits, and ongoing open-source contributions.</p>
+                <a href="https://github.com/PavanKS17" target="_blank" class="btn outline-btn" style="margin-top: 2rem;">View Full Profile</a>
+            </div>
+            <div class="github-repo-card">
+                <div class="repo-header">
+                    <span style="font-size: 1.5rem;">📁</span>
+                    <h4>Code Collaboration Platform</h4>
+                </div>
+                <p>Actively developing a collaborative coding environment utilizing Flask, React, and seamless integration with GitHub REST APIs.</p>
+                <div class="repo-meta">
+                    <span>🔴 Python</span>
+                    <span>🔵 React</span>
+                    <span>Updated Recently</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="writing" class="container reveal">
+        <h2 class="section-title">Writing & Insights</h2>
+        <div class="articles-grid">
+            <a href="https://linkedin.com/in/srinivasa-pavan00" target="_blank" class="article-card">
+                <div class="article-date">March 2026</div>
+                <h3>Mastering AI Orchestration with LangGraph</h3>
+                <p>A deep dive into building agentic workflows and managing context in complex LLM applications.</p>
+                <span class="read-more">Read on LinkedIn &rarr;</span>
+            </a>
+            <a href="#" class="article-card">
+                <div class="article-date">February 2026</div>
+                <h3>From Full-Stack to Founding Engineer</h3>
+                <p>Lessons learned while architecting the foundational machine learning systems for AICtrlNet.</p>
+                <span class="read-more">Read Article &rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="reveal">
         <h2>Let's Build Something Great.</h2>
         <a href="mailto:your.email@example.com" class="btn primary-btn">Get In Touch</a>
     </footer>
@@ -105,21 +163,15 @@
         // Tab Switching Logic
         function openTab(evt, tabName) {
             let i, tabcontent, tablinks;
-            
-            // Hide all tab content
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
                 tabcontent[i].classList.remove("active-tab");
             }
-            
-            // Remove active class from all buttons
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            
-            // Show the current tab, and add an "active" class to the button
             document.getElementById(tabName).style.display = "block";
             setTimeout(() => { document.getElementById(tabName).classList.add("active-tab"); }, 10);
             evt.currentTarget.className += " active";
