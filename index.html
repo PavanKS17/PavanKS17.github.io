@@ -8,6 +8,56 @@
     <title>Srinivasa Pavan Kancharla | ML & Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Forces the text to take up 65% of the space, and the image 35% on desktop */
+        @media (min-width: 900px) {
+            .project-showcase {
+                display: grid !important;
+                grid-template-columns: 1.8fr 1fr !important;
+                gap: 3rem !important;
+                align-items: center;
+            }
+            .project-image {
+                min-height: 350px;
+            }
+        }
+        /* GitHub Repo Card Styles */
+        .repo-card { 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            transition: all 0.3s ease; 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(25, 25, 30, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        .repo-card:hover { 
+            border-color: rgba(0, 240, 255, 0.5); 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.1);
+        }
+        .repo-card h4 { 
+            color: var(--accent-color); 
+            margin-bottom: 1rem; 
+            font-size: 1.3rem;
+        }
+
+        /* Styles for the new bullet points */
+        .project-info ul {
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding-left: 1.2rem;
+            margin-top: 1rem;
+        }
+        .project-info ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -43,7 +93,7 @@
         <div class="bento-item span-2">
             <h3>The Engineer</h3>
             <p>I build autonomous systems that bridge the gap between AI research and production scale. While my foundation is in high-stakes Computer Vision and MedTech, my current focus is on <strong>AI Orchestration</strong>—engineering the agentic workflows and RAG pipelines that allow LLMs to solve complex, real-world problems. Whether it is deploying Docker microservices for live inference or architecting robust global supply chain APIs, I own the complete engineering lifecycle.</p>
-            // <a href="whoami.html" class="btn outline-btn" style="margin-top: 1.5rem;">Execute whoami.sh &rarr;</a>
+	    <!-- <a href="whoami.html" class="btn outline-btn" style="margin-top: 1.5rem;">Execute whoami.sh &rarr;</a> -->
         </div>
         
         <div class="bento-item image-box tilt-card" style="background-image: url('images/IMG_1961.jpg');">
@@ -87,7 +137,11 @@
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
                     <h3>Distributed Core Platform</h3>
-                    <p>Owned the end-to-end software development lifecycle for SakuraMedTech's core distributed application. Architected scalable FastAPI microservices and integrated them with a responsive Flutter front-end. Designed robust PostgreSQL relational database schemas and engineered an AWS S3 data pipeline to securely process high-volume, concurrent medical data uploads. Managed system design, API routing, and deployed the production-ready application using Docker containers.</p>
+                    <ul>
+                        <li>Architected scalable FastAPI microservices and integrated them with a responsive Flutter front-end for seamless cross-platform accessibility.</li>
+                        <li>Designed robust PostgreSQL relational database schemas to securely handle concurrent medical data uploads.</li>
+                        <li>Engineered an AWS S3 data pipeline to manage high-volume imagery, deploying the production-ready application using Docker containers.</li>
+                    </ul>
                     <div class="tags-container" style="margin-top: 1.5rem;">
                         <span class="tag">FastAPI</span>
                         <span class="tag">PostgreSQL</span>
@@ -96,13 +150,17 @@
                         <span class="tag">Microservices</span>
                     </div>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800'); border-radius: 12px;"></div>
             </div>
 
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
                     <h3>Global Supply Chain Platform</h3>
-                    <p>Engineered scalable RESTful APIs utilizing Java and Spring Boot to standardize inventory tracking across international distribution centers. Developed dynamic ReactJS dashboards for real-time "SKU Discovery," enabling warehouse operators to visualize and manage 100,000+ items. Optimized complex SQL queries to reduce report generation latency by 30% and established rigorous automated testing pipelines using Azure DevOps.</p>
+                    <ul>
+                        <li>Engineered scalable RESTful APIs utilizing Java and Spring Boot to standardize inventory tracking across international distribution centers.</li>
+                        <li>Developed dynamic ReactJS dashboards for real-time "SKU Discovery," enabling warehouse operators to visualize and manage 100,000+ items.</li>
+                        <li>Optimized complex SQL queries to reduce report generation latency by 30% and established rigorous automated CI/CD pipelines via Azure DevOps.</li>
+                    </ul>
                     <div class="tags-container" style="margin-top: 1.5rem;">
                         <span class="tag">Java</span>
                         <span class="tag">Spring Boot</span>
@@ -110,13 +168,17 @@
                         <span class="tag">Azure DevOps</span>
                     </div>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8ed7444d53?auto=format&fit=crop&q=80&w=800'); border-radius: 12px;"></div>
             </div>
 
             <div class="project-showcase">
                 <div class="project-info">
                     <h3>Event-Driven Collaboration API</h3>
-                    <p>Developed core backend modules for an enterprise code collaboration platform using Flask and React, interfacing with GitHub REST APIs. Built automated, event-driven data pipelines utilizing AWS SQS and AWS Lambda serverless compute to process and ingest massive volumes of commit metadata into an Aurora PostgreSQL database. Implemented HTTP long polling to optimize data fetching and reduce API overhead.</p>
+                    <ul>
+                        <li>Developed core backend modules for an enterprise code collaboration platform using Flask and React, interfacing natively with GitHub REST APIs.</li>
+                        <li>Built automated, event-driven data pipelines utilizing AWS SQS and AWS Lambda serverless compute to process massive volumes of commit metadata.</li>
+                        <li>Implemented HTTP long polling to optimize data fetching, reducing API overhead and scaling the Aurora PostgreSQL database ingestion.</li>
+                    </ul>
                     <div class="tags-container" style="margin-top: 1.5rem;">
                         <span class="tag">Flask</span>
                         <span class="tag">ReactJS</span>
@@ -124,8 +186,10 @@
                         <span class="tag">PostgreSQL</span>
                     </div>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'); border-radius: 12px;"></div>
             </div>
+
+        </div>
 
         </div>
 
@@ -166,6 +230,53 @@
             <h3 style="margin-bottom: 1rem;">Dive Deeper into the Architecture</h3>
             <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Explore the system design, microservices, and models powering these platforms.</p>
             <a href="projects.html" class="btn primary-btn">View Detailed Case Studies &rarr;</a>
+        </div>
+	<div style="margin-top: 6rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Agentic Engineering & Orchestration</h3>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Live, open-source repositories demonstrating multi-agent workflows, Model Context Protocol (MCP), and LLM routing.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                
+                <a href="https://github.com/PavanKS17/Agentic-Multimodal-Visual-Procurement-System" target="_blank" class="repo-card">
+                    <div>
+                        <h4>Agentic-Multimodal-Visual-Procurement-System</h4>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            An end-to-end autonomous supply chain control tower built with Gemini 2.0 Flash and AlloyDB AI. Features a multimodal agentic workflow that performs visual inventory reasoning via Python Code Execution, executes high-dimensional vector similarity searches with ScaNN, and automates procurement using the A2A (Agent-to-Agent) protocol.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <span class="tag" style="margin: 0;">Python</span>
+                        <span style="font-size: 0.85rem; color: #a1a1aa;">View Repository &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/PavanKS17/LangChain4j-AlloyDB-Agent" target="_blank" class="repo-card">
+                    <div>
+                        <h4>LangChain4j-AlloyDB-Agent</h4>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            An autonomous AI agent built with Spring Boot and LangChain4j, utilizing the Model Context Protocol (MCP) to securely orchestrate Vertex AI and AlloyDB tools for real-time transit logistics.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <span class="tag" style="margin: 0;">Java</span>
+                        <span style="font-size: 0.85rem; color: #a1a1aa;">View Repository &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/PavanKS17/Agentic-Scheduling-System" target="_blank" class="repo-card">
+                    <div>
+                        <h4>Agentic-Scheduling-System</h4>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                            An omnichannel AI orchestration agent for healthcare scheduling. Features seamless text-to-voice context handoff, dynamic provider routing, and mock EPIC EHR integration via FHIR standards.
+                        </p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <span class="tag" style="margin: 0;">TypeScript</span>
+                        <span style="font-size: 0.85rem; color: #a1a1aa;">View Repository &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
         </div>
     </section>
 

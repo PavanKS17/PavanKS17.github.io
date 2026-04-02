@@ -70,7 +70,7 @@
         async function fetchRepos() {
             const repoContainer = document.getElementById('live-repos');
             try {
-                const response = await fetch('https://api.github.com/users/PavanKS17/repos?sort=updated&per_page=4');
+                const response = await fetch('https://api.github.com/users/PavanKS17/repos?sort=updated&per_page=6');
                 const repos = await response.json();
                 repoContainer.innerHTML = ''; 
                 
