@@ -457,6 +457,9 @@
         const inputField = document.getElementById('ai-input');
         const chatHistory = document.querySelector('.ai-chat-history');
 
+        // --- NEW: Create a memory array to store the conversation ---
+        let conversationMemory = []; 
+
         function toggleModal() {
             modal.classList.toggle('active');
             if (modal.classList.contains('active')) setTimeout(() => inputField.focus(), 100);
@@ -475,14 +478,17 @@
         inputField.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter' && inputField.value.trim() !== '') {
                 const userText = inputField.value.trim();
-                inputField.value = ''; // Clear input
+                inputField.value = ''; 
                 
-                // 1. Append User Message
+                // 1. Append User Message to UI
                 const userMsg = document.createElement('div');
                 userMsg.className = 'ai-message user';
                 userMsg.innerHTML = `<p style="color: var(--text-muted);">> ${userText}</p>`;
                 chatHistory.appendChild(userMsg);
                 chatHistory.scrollTop = chatHistory.scrollHeight;
+
+                // --- NEW: Save user message to memory array in Vertex format ---
+                conversationMemory.push({ role: 'user', parts: [{ text: userText }] });
 
                 // 2. Append Loading State
                 const loadingMsg = document.createElement('div');
@@ -490,20 +496,28 @@
                 loadingMsg.innerHTML = `<p style="color: var(--accent-color);">Processing query...</p>`;
                 chatHistory.appendChild(loadingMsg);
 
-                // 3. Call Vercel Backend
+                // 3. Call Vercel Backend (Now sending the whole memory, not just one message)
                 try {
-                    const res = await fetch('https://personal-portfolio-space-zeta.vercel.app/api/chat', {
+                    const res = await fetch('https://YOUR-VERCEL-URL.vercel.app/api/chat', { // <-- KEEP YOUR URL HERE
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: userText })
+                        body: JSON.stringify({ history: conversationMemory }) // Send the array!
                     });
                     
                     const data = await res.json();
                     
-                    // Replace loading text with actual AI response
+                    // Replace loading text
                     loadingMsg.innerHTML = `<p style="color: var(--text-main);">${data.reply || data.error}</p>`;
+
+                    // --- NEW: Save AI response to memory array ---
+                    if (data.reply) {
+                        conversationMemory.push({ role: 'model', parts: [{ text: data.reply }] });
+                    }
+
                 } catch (err) {
                     loadingMsg.innerHTML = `<p style="color: #ff5f56;">Connection failed. Check terminal uplink.</p>`;
+                    // If it fails, remove the last user message from memory so it doesn't corrupt the history
+                    conversationMemory.pop(); 
                 }
                 chatHistory.scrollTop = chatHistory.scrollHeight;
             }
