@@ -24,17 +24,19 @@
         </div>
     </nav>
 
-    <header class="hero reveal">
-        <div class="hero-content">
-            <h1>Engineering <span class="gradient-text">Intelligence.</span></h1>
-            <h2>Full-Stack ML Engineer specializing in Multimodal AI and Scalable Systems. From training Vision Transformers to architecting enterprise data pipelines, I build production-grade infrastructure that turns research into reality.</h2>
+    <header class="hero reveal" style="min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;">
+        <div class="hero-content" style="max-width: 900px; display: flex; flex-direction: column; align-items: center;">
+            <h1 style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Engineering <span class="gradient-text">Intelligence.</span></h1>
             
-            <div class="hero-actions">
-                <a href="#projects" class="btn primary-btn">Explore My Work</a>
+            <h2 style="font-size: 1.25rem; font-weight: 400; color: var(--text-muted); line-height: 1.6; max-width: 750px; margin-bottom: 2.5rem;">
+                Full-Stack ML Engineer specializing in Multimodal AI and Scalable Systems. From training Vision Transformers to architecting enterprise data pipelines, I build production-grade infrastructure that turns research into reality.
+            </h2>
+            
+            <div class="hero-actions" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="projects.html" class="btn primary-btn">Explore My Work</a>
                 <button class="btn outline-btn cmd-k-btn">✨ Interrogate My AI Clone (Cmd + K)</button>
             </div>
         </div>
-
     </header>
 
    <section id="whoami" class="bento-grid container reveal">
@@ -328,7 +330,9 @@
         const inputField = document.getElementById('ai-input');
         const chatHistory = document.querySelector('.ai-chat-history');
 
-        let conversationMemory = []; 
+        let conversationMemory = [];
+	let queryCount = 0; 
+        	const MAX_QUERIES = 20;
 
         function toggleModal() {
             modal.classList.toggle('active');
@@ -346,6 +350,22 @@
 
         inputField.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter' && inputField.value.trim() !== '') {
+                
+                // --- NEW: Rate Limiter Check ---
+                if (queryCount >= MAX_QUERIES) {
+                    const limitMsg = document.createElement('div');
+                    limitMsg.className = 'ai-message system';
+                    limitMsg.innerHTML = `<p style="color: #ff5f56;">[SYSTEM ALERT] Maximum API requests (20/20) reached. Neural link severed to prevent system overload. Refresh the terminal to establish a new connection.</p>`;
+                    chatHistory.appendChild(limitMsg);
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    inputField.value = '';
+                    inputField.disabled = true; // Locks the input field
+                    return; // Stops the rest of the code from running
+                }
+                
+                queryCount++; // Increment the counter for every valid message
+                // ------------------------------
+
                 const userText = inputField.value.trim();
                 inputField.value = ''; 
                 
@@ -359,7 +379,7 @@
 
                 const loadingMsg = document.createElement('div');
                 loadingMsg.className = 'ai-message system';
-                loadingMsg.innerHTML = `<p style="color: var(--accent-color);">Processing query...</p>`;
+                loadingMsg.innerHTML = `<p style="color: var(--accent-color);">Processing query [${queryCount}/${MAX_QUERIES}]...</p>`; // Shows remaining queries while loading
                 chatHistory.appendChild(loadingMsg);
 
                 try {
@@ -380,6 +400,7 @@
                 } catch (err) {
                     loadingMsg.innerHTML = `<p style="color: #ff5f56;">Connection failed. Check terminal uplink.</p>`;
                     conversationMemory.pop(); 
+                    queryCount--; // Refund the query if the API actually failed
                 }
                 chatHistory.scrollTop = chatHistory.scrollHeight;
             }
