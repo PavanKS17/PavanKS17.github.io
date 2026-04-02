@@ -1,38 +1,60 @@
+import { VertexAI } from '@google-cloud/vertexai';
+
 export default async function handler(req, res) {
-    // Only allow POST requests
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  try {
+    const { prompt } = req.body;
+
+    if (!prompt) {
+      return res.status(400).json({ error: 'Prompt is required' });
     }
 
-    const { message } = req.body;
+    // 1. Parse the JSON credentials from Vercel
+    const credentials = JSON.parse(process.env.GCP_SERVICE_ACCOUNT_JSON);
+
+    // 2. Handle Vercel's newline escaping in the private key
+    const privateKey = credentials.private_key.replace(/\\n/g, '\n');
+
+    // 3. Initialize Vertex AI with direct authentication
+    const vertex_ai = new VertexAI({
+      project: credentials.project_id,
+      location: 'us-central1', // Ensure this matches where you want to route requests
+      googleAuthOptions: {
+        credentials: {
+          client_email: credentials.client_email,
+          private_key: privateKey, 
+        }
+      }
+    });
+
+    // 4. Instantiate the Gemini model via Vertex
+    const generativeModel = vertex_ai.getGenerativeModel({
+      model: 'gemini-1.5-pro', // or 'gemini-1.5-flash' for faster, lighter tasks
+      generationConfig: {
+        maxOutputTokens: 2048,
+        temperature: 0.7,
+      },
+    });
+
+    // 5. Generate content
+    const request = {
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    };
+
+    const streamingResp = await generativeModel.generateContentStream(request);
+    const response = await streamingResp.response;
     
-    // Securely pull the API key from Vercel's environment variables
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Extract the text from the response
+    const textResponse = response.candidates[0].content.parts[0].text;
 
-    // The Persona Training
-    const systemInstruction = `You are an autonomous AI clone of Srinivasa Pavan Kancharla. You speak in the third person about Pavan in a professional, confident, and slightly sarcastic engineering tone. 
-    Key facts: He is a Full-Stack ML Engineer. He specializes in MedTech, Vision Transformers, and Agentic AI. He builds production-grade infrastructure (AWS, Docker, FastAPI). He is currently training for a 15-mile run and was nationally ranked in Para Badminton in India. Keep answers concise and punchy.`;
+    return res.status(200).json({ reply: textResponse });
 
-    try {
-        // Direct call to the Gemini API
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                system_instruction: { parts: { text: systemInstruction } },
-                contents: [{ role: 'user', parts: [{ text: message }] }]
-            })
-        });
-
-        const data = await response.json();
-        
-        if (!response.ok) throw new Error(data.error.message);
-
-        const reply = data.candidates[0].content.parts[0].text;
-        res.status(200).json({ reply });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'AI Clone is currently rebooting. Try again later.' });
-    }
+  } catch (error) {
+    console.error('Vertex AI Error:', error);
+    return res.status(500).json({ error: 'Failed to generate response from Vertex AI' });
+  }
 }
