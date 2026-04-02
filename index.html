@@ -5,43 +5,42 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srinivasa Pavan | Software Engineer, AI</title>
+    <title>Srinivasa Pavan Kancharla | ML & Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
 <body>
 
     <div class="mouse-aura"></div>
-
     <div id="tsparticles"></div>
 
     <nav>
         <div class="logo">Pavan</div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Work</a>
-            <a href="#learning">Learning</a>
-            <a href="#github">GitHub</a>
+            <a href="#whoami">whoami</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#sprints">Sprints</a>
+            <a href="#the-lab">The Lab</a>
         </div>
     </nav>
 
     <header class="hero reveal">
         <div class="hero-content">
             <h1>Engineering <span class="gradient-text">Intelligence.</span></h1>
-            <h2>Full-Stack ML Engineer specializing in Multimodal AI and Scalable Systems. From training Vision Transformers to architecting Agentic LLM workflows, I build production-grade infrastructure that turns research into reality.</h2>
+            <h2>Full-Stack ML Engineer specializing in Multimodal AI and Scalable Systems. From training Vision Transformers to architecting enterprise data pipelines, I build production-grade infrastructure that turns research into reality.</h2>
             
             <div class="hero-actions">
-                <a href="#projects" class="btn primary-btn">Explore My Work</a>
+                <a href="#architecture" class="btn primary-btn">Explore My Work</a>
                 <button class="btn outline-btn cmd-k-btn">✨ Interrogate My AI Clone (Cmd + K)</button>
             </div>
         </div>
     </header>
 
-   <section id="about" class="bento-grid container reveal">
+   <section id="whoami" class="bento-grid container reveal">
         <div class="bento-item span-2">
             <h3>The Engineer</h3>
-            <p>I build autonomous systems that bridge the gap between AI research and production scale. While my foundation is in high-stakes Computer Vision and MedTech, my current focus is on <strong>AI Orchestration</strong>—engineering the agentic workflows and RAG pipelines that allow LLMs to solve complex, real-world problems. Whether it is deploying Docker microservices for live inference or architecting 5TB+ data pipelines, I own the complete engineering lifecycle.</p>
+            <p>I build autonomous systems that bridge the gap between AI research and production scale. While my foundation is in high-stakes Computer Vision and MedTech, my current focus is on <strong>AI Orchestration</strong>—engineering the agentic workflows and RAG pipelines that allow LLMs to solve complex, real-world problems. Whether it is deploying Docker microservices for live inference or architecting robust global supply chain APIs, I own the complete engineering lifecycle.</p>
+            <a href="whoami.html" class="btn outline-btn" style="margin-top: 1.5rem;">Execute whoami.sh &rarr;</a>
         </div>
         
         <div class="bento-item image-box tilt-card" style="background-image: url('images/profile.jpg');">
@@ -49,7 +48,7 @@
 
         <div class="bento-item glass-box">
             <h3>Off-Screen</h3>
-            <p>When I am not optimizing distributed systems or , I am training to hit a 15-mile running milestone by the summer. And I never say no to a badminton game (not flexxing but ranked 11 nationonally in Para Badminton India couple of years ago ;)</p>
+            <p>When I am not optimizing distributed systems, I am training to hit a 26-mile running milestone by the summer. And I never say no to a badminton game (ranked 11th nationally in Para Badminton India a couple of years ago).</p>
         </div>
         
         <div class="bento-item span-2 glass-box">
@@ -65,7 +64,7 @@
     </section>
 
     
-    <section id="projects" class="container reveal">
+    <section id="architecture" class="container reveal">
         <h2 class="section-title">Featured Work & Research</h2>
         
         <div class="tab-container">
@@ -77,71 +76,61 @@
         <div id="Infrastructure" class="tab-content active-tab" style="display: block;">
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
-                    <h3>Global Telemetry Backend</h3>
-                    <p class="tech-stack">Java | Spring Boot | MySQL | Azure</p>
-                    <p>Engineered a highly available Java/Spring Boot backend processing 1M+ daily telemetry events[cite: 71, 112]. Designed to support 10,000+ users with 99.9% uptime while optimizing SQL queries for high-volume transactional data[cite: 71, 73].</p>
-                    <a href="#" class="btn outline-btn">View Architecture</a>
+                    <h3>Global Supply Chain Platform</h3>
+                    <p class="tech-stack">Java | Spring Boot | ReactJS | Azure DevOps</p>
+                    <p>Engineered scalable RESTful APIs for the Global Supply Chain platform, driving the standardization of inventory tracking across international distribution centers[cite: 26]. Developed dynamic React dashboards for real-time "SKU Discovery," enabling warehouse operators to visualize and manage 100,000+ items[cite: 27].</p>
+                    <a href="projects.html" class="btn outline-btn">View Architecture</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
 
             <div class="project-showcase">
                 <div class="project-info">
-                    <h3>Code Collaboration Platform</h3>
-                    <p class="tech-stack">ReactJS | Flask | AWS SQS & Lambda</p>
-                    <p>Developed a centralized platform enabling transactional workflows for 200+ repositories[cite: 64]. Built automated AWS data pipelines (SQS, Lambda, S3) to ingest and process 5TB+ of monthly metadata[cite: 66, 116].</p>
-                    <a href="#" class="btn outline-btn">View Repository</a>
+                    <h3>Medical Imagery Data Pipeline</h3>
+                    <p class="tech-stack">FastAPI | PostgreSQL | AWS S3 | Flutter</p>
+                    <p>Owned the foundational system design for a core medical platform, deploying a scalable PostgreSQL and AWS S3 data pipeline to manage high-resolution medical imagery, which reduced downstream ML retrieval latency by 40%[cite: 9, 10]. Integrated a responsive Flutter front-end with FastAPI microservices to improve cross-platform accessibility[cite: 8].</p>
+                    <a href="projects.html" class="btn outline-btn">View Infrastructure</a>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
 
         <div id="AI" class="tab-content">
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
-                    <h3>End-to-End MedTech Diagnostic Platform</h3>
-                    <p class="tech-stack">ViT | Hardware Integration | FastAPI | Cloud Infrastructure</p>
-                    <p>Solo-architected an edge-to-cloud diagnostic system from the ground up[cite: 58, 101]. Successfully bridged physical hardware capture devices with a secure cloud backend, engineering custom Vision Transformers (ViT) to perform high-accuracy cervical imagery segmentation[cite: 9, 102]. Owned the complete product lifecycle, integrating intuitive frontend interfaces with concurrent FastAPI microservices, reducing manual clinical review time by 40%[cite: 101, 105].</p>
-                    <a href="#" class="btn outline-btn">View Case Study</a>
+                    <h3>Diagnostic CV Platform</h3>
+                    <p class="tech-stack">Vision Transformers (ViT) | Contrastive Learning | Docker</p>
+                    <p>Engineered Vision Transformers and Contrastive Learning pipelines, enhancing segmentation accuracy on cervical images over traditional CNNs by 12%[cite: 11]. Implemented Zero-Shot Learning to generalize inference and deployed optimized Docker containers to achieve <200ms inference latency[cite: 14].</p>
+                    <a href="projects.html" class="btn outline-btn">View Case Study</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
 
             <div class="project-showcase">
                 <div class="project-info">
-                    <h3>Agricultural Disease Detection</h3>
-                    <p class="tech-stack">YOLO | Python | Mobile Deployment</p>
-                    <p>Trained YOLO object detection models to classify crop diseases on a custom dataset of 50,000+ images, achieving 94% mAP[cite: 110]. Developed an end-to-end diagnostic app deployed to 2,000+ partner farmers[cite: 111].</p>
-                    <a href="#" class="btn outline-btn">View Deployment</a>
-                </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800');"></div>
-            </div>
-        </div>
-
-        <div id="Publications" class="tab-content">
-            <div class="project-showcase" style="margin-bottom: 3rem;">
-                <div class="project-info">
-                    <h3>AIAA SciTech Forum Publication</h3>
-                    <p class="tech-stack">U-Net | Image Segmentation | Fluid Dynamics</p>
-                    <p>Published research on the "Characterization of Droplet Shapes from Atomizing Spray Liquid Jet in Crossflow via Machine Learning"[cite: 142]. Developed a high-precision pipeline utilizing U-Net for automated segmentation and morphological characterization[cite: 134].</p>
-                    <a href="https://doi.org/10.2514/6.2026-1554" target="_blank" class="btn outline-btn">Read Paper (DOI)</a>
-                </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
-            </div>
-
-            <div class="project-showcase">
-                <div class="project-info">
-                    <h3>Survival Prediction for Grade-IV Brain Tumors</h3>
-                    <p class="tech-stack">MAEMI | CNNs | Generative Adversarial Networks</p>
-                    <p>Implemented Masked Autoencoders (MAEMI) for MRI representation learning [cite: 140], achieving 82% accuracy on downstream survival prediction tasks, significantly outperforming standard Random Forest and SVM baselines[cite: 82, 140].</p>
-                    <a href="#" class="btn outline-btn">Review Research</a>
+                    <h3>Brain Tumor Survival Prediction</h3>
+                    <p class="tech-stack">Masked Autoencoders (MAEMI) | MRI | Foundation Models</p>
+                    <p>Implemented MAEMI (Masked Autoencoder) to extract latent features from MRI scans for Grade-IV brain tumors[cite: 46, 50]. Benchmarked the foundation models against SAM, achieving 82% accuracy, outperforming traditional baselines like Random Forest and SVM[cite: 51, 52].</p>
+                    <a href="projects.html" class="btn outline-btn">View Research</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
         </div>
+
+        <div id="Publications" class="tab-content">
+            <div class="project-showcase">
+                <div class="project-info">
+                    <h3>AIAA SciTech Publication</h3>
+                    <p class="tech-stack">U-Net | Image Segmentation | Fluid Dynamics</p>
+                    <p>Developed a geometric feature extraction pipeline utilizing U-Net for combustion images, improving segmentation accuracy by 20%[cite: 55]. First-authored and published these simulation-based image pipeline research findings at the AIAA SciTech forum[cite: 56].</p>
+                    <a href="blog.html" class="btn outline-btn">Read Paper</a>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+        </div>
     </section>
 
-    <section id="learning" class="container reveal">
+    <section id="sprints" class="container reveal">
         <h2 class="section-title">Continuous Learning</h2>
         <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Tracking my active certifications, upcoming sprints, and deep dives into next-generation AI.</p>
         
@@ -163,19 +152,6 @@
             <div class="timeline-item tilt-card">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="badge upcoming">Upcoming: Mar 18 & 25, 2026</span>
-                    <h3>IBM SkillsBuild Data and AI Sprint</h3>
-                    <p>Fast-tracking fundamentals in enterprise data architecture, machine learning ecosystems, and scalable AI deployment strategies.</p>
-                    <div class="tags-container">
-                        <span class="tag">Data Architecture</span>
-                        <span class="tag">AI Fundamentals</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item tilt-card">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
                     <span class="badge planned">Planned Certification</span>
                     <h3>AWS Certified Machine Learning – Specialty</h3>
                     <p>Validating deep technical expertise in building, training, tuning, and deploying large-scale ML models on the AWS Cloud infrastructure.</p>
@@ -188,99 +164,10 @@
         </div>
     </section>
 
-    <section id="skills" class="container reveal">
-        <h2 class="section-title">Technical Arsenal</h2>
-        
-        <div class="skills-wrapper">
-            <div class="skill-category glass-box tilt-card">
-                <h4>Languages</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-                    <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
-                    <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
-                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-box tilt-card">
-                <h4>Machine Learning</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-pytorch-plain colored"></i><span>PyTorch</span></div>
-                    <div class="skill-item"><i class="devicon-tensorflow-original colored"></i><span>TensorFlow</span></div>
-                    <div class="skill-item"><i class="devicon-opencv-plain colored"></i><span>OpenCV</span></div>
-                    <div class="skill-item"><i class="devicon-jupyter-plain colored"></i><span>Jupyter</span></div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-box tilt-card">
-                <h4>Backend APIs</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-spring-original colored"></i><span>Spring Boot</span></div>
-                    <div class="skill-item"><i class="devicon-fastapi-plain colored"></i><span>FastAPI</span></div>
-                    <div class="skill-item"><i class="devicon-flask-original text-main"></i><span>Flask</span></div>
-                    <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-box tilt-card">
-                <h4>Cloud & DevOps</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-amazonwebservices-original colored"></i><span>AWS</span></div>
-                    <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
-                    <div class="skill-item"><i class="devicon-kubernetes-plain colored"></i><span>Kubernetes</span></div>
-                    <div class="skill-item"><i class="devicon-linux-plain text-main"></i><span>Linux</span></div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-box tilt-card">
-                <h4>Databases</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
-                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
-                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
-                    <div class="skill-item"><i class="devicon-amazonwebservices-original colored"></i><span>AWS S3</span></div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-box tilt-card">
-                <h4>Frontend & Mobile</h4>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="devicon-react-original colored"></i><span>ReactJS</span></div>
-                    <div class="skill-item"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
-                    <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
-                    <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="github" class="container reveal">
-        <h2 class="section-title">Open Source Activity</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Real-time statistics pulled directly from my GitHub profile.</p>
-        
-        <div class="github-stats-grid">
-            <img src="https://github-readme-stats.vercel.app/api?username=PavanKS17&show_icons=true&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="GitHub Stats" class="tilt-card github-img" />
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=PavanKS17&theme=radical&background=1e1e1e&hide_border=true&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" class="tilt-card github-img" />
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PavanKS17&layout=compact&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="Top Languages" class="tilt-card github-img" />
-        </div>
-    </section>
-
-    <section id="writing" class="container reveal">
-        <h2 class="section-title">Writing & Insights</h2>
-        <div class="articles-grid">
-            <a href="https://linkedin.com/in/srinivasa-pavan00" target="_blank" class="article-card">
-                <div class="article-date">March 2026</div>
-                <h3>Mastering AI Orchestration with LangGraph</h3>
-                <p>A deep dive into building agentic workflows and managing context in complex LLM applications.</p>
-                <span class="read-more">Read on LinkedIn &rarr;</span>
-            </a>
-            <a href="#" class="article-card">
-                <div class="article-date">February 2026</div>
-                <h3>From Full-Stack to Founding Engineer</h3>
-                <p>Lessons learned while architecting the foundational machine learning systems for AICtrlNet.</p>
-                <span class="read-more">Read Article &rarr;</span>
-            </a>
-        </div>
+    <section id="the-lab" class="container reveal" style="text-align: center; padding: 4rem 0;">
+        <h2 class="section-title">Open Source & Telemetry</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">Explore my real-time GitHub statistics, current active builds, and open-source contributions.</p>
+        <a href="the-lab.html" class="btn primary-btn">Enter The Lab &rarr;</a>
     </section>
 
     <footer class="reveal">
@@ -290,7 +177,6 @@
 
     <div id="ai-modal" class="ai-modal-overlay">
         <div class="ai-command-center">
-            
             <div class="ai-header">
                 <div class="window-controls">
                     <span class="close-dot"></span>
@@ -303,7 +189,7 @@
             
             <div class="ai-chat-history">
                 <div class="ai-message system">
-                    <p>Connection established. I am Pavan's autonomous AI clone. I know his AWS architecture, his FDA compliance workflows, and his 15-mile running pace. What secrets would you like to extract?</p>
+                    <p>Connection established. I am Pavan's autonomous AI clone. I know his AWS architecture, his ML research, and his running pace. What secrets would you like to extract?</p>
                 </div>
             </div>
             
@@ -312,7 +198,6 @@
                 <input type="text" id="ai-input" placeholder="Ask a question..." autocomplete="off">
                 <span class="shortcut-hint">↵ Enter</span>
             </div>
-            
         </div>
     </div>
 
@@ -350,20 +235,17 @@
         }
 
         // 3. Premium 3D Hover Tilt Effect
-        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item, .article-card, .github-stat-card, .github-repo-card');
+        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item, .article-card, .github-stat-card');
         
         tiltCards.forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left; 
                 const y = e.clientY - rect.top;  
-                
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
                 const rotateX = ((y - centerY) / centerY) * -5; 
                 const rotateY = ((x - centerX) / centerX) * 5;
-
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
 
@@ -402,62 +284,29 @@
             fpsLimit: 60,
             interactivity: {
                 events: {
-                    onHover: {
-                        enable: true,
-                        mode: "grab", 
-                    },
+                    onHover: { enable: true, mode: "grab" },
                 },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        links: { opacity: 0.5 },
-                    },
-                },
+                modes: { grab: { distance: 140, links: { opacity: 0.5 } } },
             },
             particles: {
-                color: {
-                    value: ["#00f0ff", "#7000ff"],
-                },
-                links: {
-                    color: "#a1a1aa",
-                    distance: 150,
-                    enable: true,
-                    opacity: 0.3,
-                    width: 1,
-                },
-                move: {
-                    direction: "none",
-                    enable: true,
-                    outModes: { default: "bounce" },
-                    random: true,
-                    speed: 0.6,
-                    straight: false,
-                },
-                number: {
-                    density: { enable: true, area: 800 },
-                    value: 60,
-                },
-                opacity: {
-                    value: 0.3, // Updated for better visibility!
-                },
-                shape: {
-                    type: "circle",
-                },
-                size: {
-                    value: { min: 1, max: 2.5 }, // Updated for better visibility!
-                },
+                color: { value: ["#00f0ff", "#7000ff"] },
+                links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 },
+                move: { direction: "none", enable: true, outModes: { default: "bounce" }, random: true, speed: 0.6, straight: false },
+                number: { density: { enable: true, area: 800 }, value: 60 },
+                opacity: { value: 0.3 },
+                shape: { type: "circle" },
+                size: { value: { min: 1, max: 2.5 } },
             },
             detectRetina: true,
         });
 
-        // 6. AI Command Center (Cmd+K) Logic & API Call
+        // 6. AI Command Center Logic & Stateful Memory API
         const modal = document.getElementById('ai-modal');
         const triggerBtn = document.querySelector('.cmd-k-btn');
         const closeBtn = document.getElementById('close-modal');
         const inputField = document.getElementById('ai-input');
         const chatHistory = document.querySelector('.ai-chat-history');
 
-        // --- NEW: Create a memory array to store the conversation ---
         let conversationMemory = []; 
 
         function toggleModal() {
@@ -474,49 +323,41 @@
             if (e.key === 'Escape' && modal.classList.contains('active')) toggleModal();
         });
 
-        // Chat Submission Logic
         inputField.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter' && inputField.value.trim() !== '') {
                 const userText = inputField.value.trim();
                 inputField.value = ''; 
                 
-                // 1. Append User Message to UI
                 const userMsg = document.createElement('div');
                 userMsg.className = 'ai-message user';
                 userMsg.innerHTML = `<p style="color: var(--text-muted);">> ${userText}</p>`;
                 chatHistory.appendChild(userMsg);
                 chatHistory.scrollTop = chatHistory.scrollHeight;
 
-                // --- NEW: Save user message to memory array in Vertex format ---
                 conversationMemory.push({ role: 'user', parts: [{ text: userText }] });
 
-                // 2. Append Loading State
                 const loadingMsg = document.createElement('div');
                 loadingMsg.className = 'ai-message system';
                 loadingMsg.innerHTML = `<p style="color: var(--accent-color);">Processing query...</p>`;
                 chatHistory.appendChild(loadingMsg);
 
-                // 3. Call Vercel Backend (Now sending the whole memory, not just one message)
                 try {
-                    const res = await fetch('https://personal-portfolio-space-zeta.vercel.app/api/chat', { // <-- KEEP YOUR URL HERE
+                    const res = await fetch('https://personal-portfolio-space-zeta.vercel.app/api/chat', { 
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ history: conversationMemory }) // Send the array!
+                        body: JSON.stringify({ history: conversationMemory }) 
                     });
                     
                     const data = await res.json();
                     
-                    // Replace loading text
                     loadingMsg.innerHTML = `<p style="color: var(--text-main);">${data.reply || data.error}</p>`;
 
-                    // --- NEW: Save AI response to memory array ---
                     if (data.reply) {
                         conversationMemory.push({ role: 'model', parts: [{ text: data.reply }] });
                     }
 
                 } catch (err) {
                     loadingMsg.innerHTML = `<p style="color: #ff5f56;">Connection failed. Check terminal uplink.</p>`;
-                    // If it fails, remove the last user message from memory so it doesn't corrupt the history
                     conversationMemory.pop(); 
                 }
                 chatHistory.scrollTop = chatHistory.scrollHeight;

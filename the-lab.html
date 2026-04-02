@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lab | Pavan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="mouse-aura"></div>
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Pavan</a></div>
+        <div class="nav-links">
+            <a href="index.html#whoami">whoami</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="the-lab.html" class="active">The Lab</a>
+        </div>
+    </nav>
+
+    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+        <div class="hero-content">
+            <h1>The <span class="gradient-text">Lab.</span></h1>
+            <h2>Live telemetry from my GitHub, open-source contributions, and experimental AI agent builds.</h2>
+        </div>
+    </header>
+
+    <section class="container reveal" style="margin-bottom: 5rem;">
+        <h2 class="section-title">Live GitHub Telemetry</h2>
+        <p style="color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">Real-time statistics pulled directly from the GitHub API.</p>
+        
+        <div class="github-stats-grid">
+            <img src="https://github-readme-stats.vercel.app/api?username=PavanKS17&show_icons=true&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="GitHub Stats" class="tilt-card github-img" style="width: 100%; border-radius: 8px;" />
+            
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=PavanKS17&theme=radical&background=1e1e1e&hide_border=true&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" class="tilt-card github-img" style="width: 100%; border-radius: 8px;" />
+            
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PavanKS17&layout=compact&theme=radical&bg_color=1e1e1e&hide_border=true&title_color=00f0ff&text_color=a1a1aa" alt="Top Languages" class="tilt-card github-img" style="width: 100%; border-radius: 8px;" />
+        </div>
+    </section>
+
+    <section class="container reveal" style="margin-bottom: 8rem;">
+        <h2 class="section-title">Current Active Builds</h2>
+        <div class="bento-grid">
+            <div class="bento-item span-2 glass-box tilt-card">
+                <h3 style="color: var(--accent-color);">[WIP] Enterprise AI Orchestration Platform</h3>
+                <p style="margin-top: 1rem;">Currently architecting a scalable platform to manage complex LLM routing and agentic workflows. Experimenting with LangGraph for stateful multi-agent systems and Model Context Protocol (MCP) for seamless tool integration.</p>
+                <div class="tags-container" style="margin-top: 1.5rem;">
+                    <span class="tag">LangGraph</span>
+                    <span class="tag">Agentic AI</span>
+                    <span class="tag">Vector DBs</span>
+                </div>
+            </div>
+
+            <div class="bento-item glass-box tilt-card">
+                <h3>Vercel Serverless AI</h3>
+                <p style="margin-top: 1rem;">The backend powering the AI clone on this portfolio. Utilizing Google Cloud Service Accounts and Vertex AI to maintain stateful, secure conversation history across serverless edge functions.</p>
+                <a href="https://github.com/PavanKS17" target="_blank" class="btn outline-btn" style="margin-top: 1rem; width: 100%;">View on GitHub &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="reveal" style="text-align: center; padding-bottom: 4rem;">
+        <a href="index.html" class="btn outline-btn">&larr; Return to Main Terminal</a>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // 3D Tilt
+        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item, .github-img');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top;  
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -5; 
+                const rotateY = ((x - centerX) / centerX) * 5;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                card.style.transition = 'transform 0.5s ease';
+            });
+            card.addEventListener('mouseenter', () => card.style.transition = 'transform 0.1s ease');
+        });
+
+        // Mouse Aura
+        const aura = document.querySelector('.mouse-aura');
+        document.addEventListener('mousemove', (e) => {
+            aura.style.left = `${e.clientX}px`;
+            aura.style.top = `${e.clientY}px`;
+        });
+
+        // Particles
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: false },
+            fpsLimit: 60,
+            interactivity: {
+                events: { onHover: { enable: true, mode: "grab" } },
+                modes: { grab: { distance: 140, links: { opacity: 0.5 } } },
+            },
+            particles: {
+                color: { value: ["#00f0ff", "#7000ff"] },
+                links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 },
+                move: { enable: true, random: true, speed: 0.6 },
+                number: { density: { enable: true, area: 800 }, value: 60 },
+                opacity: { value: 0.3 },
+                shape: { type: "circle" },
+                size: { value: { min: 1, max: 2.5 } },
+            },
+            detectRetina: true,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Logs | Pavan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="mouse-aura"></div>
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Pavan</a></div>
+        <div class="nav-links">
+            <a href="whoami.html">whoami</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="the-lab.html">The Lab</a>
+        </div>
+    </nav>
+
+    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+        <div class="hero-content">
+            <h1>System <span class="gradient-text">Logs.</span></h1>
+            <h2>Writing down my neural pathways. Tutorials, architectural teardowns, and thoughts on AI orchestration.</h2>
+        </div>
+    </header>
+
+    <section class="container reveal" style="margin-bottom: 8rem;">
+        <div class="articles-grid">
+            
+            <a href="https://linkedin.com/in/srinivasa-pavan00" target="_blank" class="article-card tilt-card">
+                <div class="article-date">March 2026</div>
+                <h3>Mastering AI Orchestration with LangGraph</h3>
+                <p>A deep dive into building agentic workflows and managing context in complex LLM applications.</p>
+                <span class="read-more">Read on LinkedIn &rarr;</span>
+            </a>
+
+            <a href="#" class="article-card tilt-card">
+                <div class="article-date">February 2026</div>
+                <h3>From Full-Stack to Founding Engineer</h3>
+                <p>Lessons learned while architecting the foundational machine learning systems for AICtrlNet.</p>
+                <span class="read-more">Read Article &rarr;</span>
+            </a>
+
+            <a href="#" class="article-card tilt-card">
+                <div class="article-date">January 2026</div>
+                <h3>Deploying Vision Transformers to the Edge</h3>
+                <p>Overcoming the latency and hardware constraints of deploying heavy ViT models in live medical diagnostic environments.</p>
+                <span class="read-more">Read Article &rarr;</span>
+            </a>
+
+            <a href="#" class="article-card tilt-card">
+                <div class="article-date">November 2025</div>
+                <h3>Why RAG is Just the Beginning</h3>
+                <p>Exploring the shift from simple Retrieval-Augmented Generation to stateful, multi-agent AI networks.</p>
+                <span class="read-more">Read Article &rarr;</span>
+            </a>
+
+        </div>
+    </section>
+
+    <footer class="reveal" style="text-align: center; padding-bottom: 4rem;">
+        <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
+    </footer>
+
+    <script>
+        // Standard shared scripts for particles, scroll reveal, aura, and tilt.
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        const tiltCards = document.querySelectorAll('.tilt-card, .article-card');
+        tiltCards.forEach(card => { card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; const centerX = rect.width / 2; const centerY = rect.height / 2; const rotateX = ((y - centerY) / centerY) * -5; const rotateY = ((x - centerX) / centerX) * 5; card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`; }); card.addEventListener('mouseleave', () => { card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`; card.style.transition = 'transform 0.5s ease'; }); card.addEventListener('mouseenter', () => card.style.transition = 'transform 0.1s ease'); });
+        const aura = document.querySelector('.mouse-aura');
+        document.addEventListener('mousemove', (e) => { aura.style.left = `${e.clientX}px`; aura.style.top = `${e.clientY}px`; });
+        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, interactivity: { events: { onHover: { enable: true, mode: "grab" } }, modes: { grab: { distance: 140, links: { opacity: 0.5 } } }, }, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { density: { enable: true, area: 800 }, value: 60 }, opacity: { value: 0.3 }, shape: { type: "circle" }, size: { value: { min: 1, max: 2.5 } }, }, detectRetina: true, });
+    </script>
+</body>
+</html>
