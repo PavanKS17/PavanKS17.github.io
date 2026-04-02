@@ -20,17 +20,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { history, prompt, message, text, input } = req.body;
-    let requestContents = [];
+    const { prompt, message, text, input } = req.body;
+    const finalPrompt = prompt || message || text || input;
 
-    // Decide if we use the history array or a single message
-    if (history && Array.isArray(history) && history.length > 0) {
-      requestContents = history;
-    } else {
-      const finalPrompt = prompt || message || text || input;
-      if (!finalPrompt) return res.status(400).json({ error: 'No input provided' });
-      
-      requestContents = [{ role: 'user', parts: [{ text: finalPrompt }] }];
+    if (!finalPrompt) {
+      console.error("Received an invalid body:", req.body);
+      return res.status(400).json({ 
+        error: 'No text received. Make sure frontend sends JSON with a "message" key.',
+        receivedBody: req.body 
+      });
     }
 
     const credentials = JSON.parse(process.env.GCP_SERVICE_ACCOUNT_JSON);
@@ -90,7 +88,7 @@ export default async function handler(req, res) {
     });
 
     const request = {
-      contents: requestContents,
+      contents: [{ role: 'user', parts: [{ text: finalPrompt }] }],
     };
 
     const streamingResp = await generativeModel.generateContentStream(request);
