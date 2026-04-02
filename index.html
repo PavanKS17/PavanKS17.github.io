@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srinivasa Pavan | AI Architect</title>
@@ -11,6 +13,8 @@
 <body>
 
     <div class="mouse-aura"></div>
+
+    <div id="tsparticles"></div>
 
     <nav>
         <div class="logo">Pavan.</div>
@@ -357,6 +361,59 @@
             el.addEventListener('mouseleave', () => {
                 aura.classList.remove('interactive-hover');
             });
+        });
+        // 5. Antigravity Particle Network
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: false },
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "grab", // Particles reach out to the mouse
+                    },
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        links: { opacity: 0.5 },
+                    },
+                },
+            },
+            particles: {
+                color: {
+                    value: ["#00f0ff", "#7000ff"], // Electric Blue and Purple
+                },
+                links: {
+                    color: "#a1a1aa",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.15,
+                    width: 1,
+                },
+                move: {
+                    direction: "none",
+                    enable: true,
+                    outModes: { default: "bounce" },
+                    random: true,
+                    speed: 0.6, // Slow, ambient drift
+                    straight: false,
+                },
+                number: {
+                    density: { enable: true, area: 800 },
+                    value: 40, // Keeps it minimalistic and uncluttered
+                },
+                opacity: {
+                    value: 0.3,
+                },
+                shape: {
+                    type: "circle",
+                },
+                size: {
+                    value: { min: 1, max: 2.5 },
+                },
+            },
+            detectRetina: true,
         });
     </script>
 </body>
