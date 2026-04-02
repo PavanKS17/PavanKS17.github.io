@@ -288,6 +288,34 @@
         <a href="mailto:pavansrinivas2@gmail.com" class="btn primary-btn" style="margin-top: 2rem;">Get In Touch</a>
     </footer>
 
+    <div id="ai-modal" class="ai-modal-overlay">
+        <div class="ai-command-center">
+            
+            <div class="ai-header">
+                <div class="window-controls">
+                    <span class="close-dot"></span>
+                    <span class="min-dot"></span>
+                    <span class="max-dot"></span>
+                </div>
+                <span>Pavan_AI_Terminal_v1.0</span>
+                <button id="close-modal" class="close-text">ESC</button>
+            </div>
+            
+            <div class="ai-chat-history">
+                <div class="ai-message system">
+                    <p>Connection established. I am Pavan's autonomous AI clone. I know his AWS architecture, his FDA compliance workflows, and his 15-mile running pace. What secrets would you like to extract?</p>
+                </div>
+            </div>
+            
+            <div class="ai-input-area">
+                <span class="prompt-arrow">➜</span>
+                <input type="text" id="ai-input" placeholder="Ask a question..." autocomplete="off">
+                <span class="shortcut-hint">↵ Enter</span>
+            </div>
+            
+        </div>
+    </div>
+
     <script>
         // 1. Scroll Reveal Animation Logic
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -367,6 +395,7 @@
                 aura.classList.remove('interactive-hover');
             });
         });
+
         // 5. Antigravity Particle Network
         tsParticles.load("tsparticles", {
             fullScreen: { enable: false },
@@ -375,7 +404,7 @@
                 events: {
                     onHover: {
                         enable: true,
-                        mode: "grab", // Particles reach out to the mouse
+                        mode: "grab", 
                     },
                 },
                 modes: {
@@ -387,7 +416,7 @@
             },
             particles: {
                 color: {
-                    value: ["#00f0ff", "#7000ff"], // Electric Blue and Purple
+                    value: ["#00f0ff", "#7000ff"],
                 },
                 links: {
                     color: "#a1a1aa",
@@ -401,52 +430,25 @@
                     enable: true,
                     outModes: { default: "bounce" },
                     random: true,
-                    speed: 0.6, // Slow, ambient drift
+                    speed: 0.6,
                     straight: false,
                 },
                 number: {
                     density: { enable: true, area: 800 },
-                    value: 60, // Keeps it minimalistic and uncluttered
+                    value: 60,
                 },
                 opacity: {
-                    value: 0.3,
+                    value: 0.7, // Updated for better visibility!
                 },
                 shape: {
                     type: "circle",
                 },
                 size: {
-                    value: { min: 1, max: 2.5 },
+                    value: { min: 1.5, max: 3.5 }, // Updated for better visibility!
                 },
             },
             detectRetina: true,
         });
-        <div id="ai-modal" class="ai-modal-overlay">
-        <div class="ai-command-center">
-            
-            <div class="ai-header">
-                <div class="window-controls">
-                    <span class="close-dot"></span>
-                    <span class="min-dot"></span>
-                    <span class="max-dot"></span>
-                </div>
-                <span>Pavan_AI_Terminal_v1.0</span>
-                <button id="close-modal" class="close-text">ESC</button>
-            </div>
-            
-            <div class="ai-chat-history">
-                <div class="ai-message system">
-                    <p>Connection established. I am Pavan's autonomous AI clone. I know his AWS architecture, his FDA compliance workflows, and his 15-mile running pace. What secrets would you like to extract?</p>
-                </div>
-                </div>
-            
-            <div class="ai-input-area">
-                <span class="prompt-arrow">➜</span>
-                <input type="text" id="ai-input" placeholder="Ask a question..." autocomplete="off">
-                <span class="shortcut-hint">↵ Enter</span>
-            </div>
-            
-        </div>
-    </div>
 
         // 6. AI Command Center (Cmd+K) Logic
         const modal = document.getElementById('ai-modal');
@@ -454,34 +456,25 @@
         const closeBtn = document.getElementById('close-modal');
         const inputField = document.getElementById('ai-input');
 
-        // Function to open/close the modal
         function toggleModal() {
             modal.classList.toggle('active');
-            // Auto-focus the input box when opened
             if (modal.classList.contains('active')) {
                 setTimeout(() => inputField.focus(), 100);
             }
         }
 
-        // Open via button click
         triggerBtn.addEventListener('click', toggleModal);
-        
-        // Close via ESC button click
         closeBtn.addEventListener('click', toggleModal);
 
-        // Close by clicking outside the terminal window
         modal.addEventListener('click', (e) => {
             if (e.target === modal) toggleModal();
         });
 
-        // Global Keyboard Shortcuts
         document.addEventListener('keydown', (e) => {
-            // Listen for Cmd+K (Mac) or Ctrl+K (Windows)
             if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault(); // Stop browser's default search bar from opening
+                e.preventDefault(); 
                 toggleModal();
             }
-            // Listen for ESC key to close
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 toggleModal();
             }
