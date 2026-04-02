@@ -450,33 +450,62 @@
             detectRetina: true,
         });
 
-        // 6. AI Command Center (Cmd+K) Logic
+        // 6. AI Command Center (Cmd+K) Logic & API Call
         const modal = document.getElementById('ai-modal');
         const triggerBtn = document.querySelector('.cmd-k-btn');
         const closeBtn = document.getElementById('close-modal');
         const inputField = document.getElementById('ai-input');
+        const chatHistory = document.querySelector('.ai-chat-history');
 
         function toggleModal() {
             modal.classList.toggle('active');
-            if (modal.classList.contains('active')) {
-                setTimeout(() => inputField.focus(), 100);
-            }
+            if (modal.classList.contains('active')) setTimeout(() => inputField.focus(), 100);
         }
 
         triggerBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('click', toggleModal);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) toggleModal();
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) toggleModal(); });
 
         document.addEventListener('keydown', (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault(); 
-                toggleModal();
-            }
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                toggleModal();
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); toggleModal(); }
+            if (e.key === 'Escape' && modal.classList.contains('active')) toggleModal();
+        });
+
+        // Chat Submission Logic
+        inputField.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter' && inputField.value.trim() !== '') {
+                const userText = inputField.value.trim();
+                inputField.value = ''; // Clear input
+                
+                // 1. Append User Message
+                const userMsg = document.createElement('div');
+                userMsg.className = 'ai-message user';
+                userMsg.innerHTML = `<p style="color: var(--text-muted);">> ${userText}</p>`;
+                chatHistory.appendChild(userMsg);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+
+                // 2. Append Loading State
+                const loadingMsg = document.createElement('div');
+                loadingMsg.className = 'ai-message system';
+                loadingMsg.innerHTML = `<p style="color: var(--accent-color);">Processing query...</p>`;
+                chatHistory.appendChild(loadingMsg);
+
+                // 3. Call Vercel Backend
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: userText })
+                    });
+                    
+                    const data = await res.json();
+                    
+                    // Replace loading text with actual AI response
+                    loadingMsg.innerHTML = `<p style="color: var(--text-main);">${data.reply || data.error}</p>`;
+                } catch (err) {
+                    loadingMsg.innerHTML = `<p style="color: #ff5f56;">Connection failed. Check terminal uplink.</p>`;
+                }
+                chatHistory.scrollTop = chatHistory.scrollHeight;
             }
         });
     </script>
