@@ -27,19 +27,19 @@
         </div>
     </nav>
 
-    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+    <header class="hero" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
         <div class="hero-content">
             <h1><span class="gradient-text">> whoami</span></h1>
             <h2>The base model behind the architecture. A look into my engineering philosophy, background, and life off-screen.</h2>
         </div>
     </header>
 
-    <section class="container reveal">
+    <section class="container">
         <div class="structured-grid">
             <div class="glass-box" style="padding: 2.5rem;">
                 <h3 style="color: var(--accent-color); margin-bottom: 1rem;">The Engineering Philosophy</h3>
                 <p style="margin-bottom: 1rem; line-height: 1.8;">I believe the hardest part of Machine Learning isn't training the model—it is getting the model to survive in production. My career is defined by bridging the gap between high-level AI research and scalable, distributed software systems.</p>
-                <p style="line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or exploring the prerequisites for future AI orchestration systems, my goal is to build infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
+                <p style="line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or studying the foundations for future AI orchestration, my goal is to architect infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
             </div>
             <div class="glass-box" style="background-image: url('images/profile.jpg'); background-size: cover; background-position: center; min-height: 300px; border-radius: 16px;">
             </div>
@@ -62,15 +62,21 @@
                 <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Off-Screen Calibration</h3>
                 <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem;">
                     <li style="margin-bottom: 0.5rem;"><strong>The Pavement:</strong> Training to crush a 26-mile marathon by the summer.</li>
-                    <li style="margin-bottom: 0.5rem;"><strong>The Court:</strong> Ranked 11th nationally in Para Badminton in India a few years ago.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>The Court:</strong> Ranked 11th nationally in Para Badminton in India.</li>
                     <li><strong>The Fuel:</strong> McDonald's Hot 'N Spicy McChicken (no lettuce, extra mayo).</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <footer class="reveal" style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
+    <footer style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
         <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
     </footer>
+
+    <script>
+        const aura = document.querySelector('.mouse-aura');
+        document.addEventListener('mousemove', (e) => { aura.style.left = e.clientX + 'px'; aura.style.top = e.clientY + 'px'; });
+        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { value: 60 } } });
+    </script>
 </body>
 </html>

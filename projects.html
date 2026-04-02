@@ -5,167 +5,152 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Architecture | Pavan's Portfolio</title>
+    <title>Projects & Architecture | Pavan's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Clean, stable project card UI */
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            background: rgba(25, 25, 30, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        .project-content h3 { color: var(--text-main); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .project-role { color: var(--accent-color); font-weight: 600; margin-bottom: 1.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;}
+        .project-bullets { color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin-bottom: 2rem; }
+        .project-bullets li { margin-bottom: 0.8rem; }
+        
+        @media (min-width: 900px) {
+            .project-card { grid-template-columns: 2fr 1fr; }
+        }
+    </style>
 </head>
 <body>
-
     <div class="mouse-aura"></div>
     <div id="tsparticles"></div>
 
     <nav>
         <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Pavan</a></div>
         <div class="nav-links">
-            <a href="index.html#about">About</a>
+            <a href="whoami.html">whoami</a>
             <a href="projects.html" class="active">Projects</a>
             <a href="blog.html">Blog</a>
             <a href="the-lab.html">The Lab</a>
         </div>
     </nav>
 
-    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+    <header class="hero" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
         <div class="hero-content">
-            <h1>System <span class="gradient-text">Architecture.</span></h1>
-            <h2>Deep dives into the distributed systems, machine learning pipelines, and agentic workflows I have engineered for production.</h2>
+            <h1>Systems & <span class="gradient-text">Projects.</span></h1>
+            <h2>A complete catalog of my professional engineering work, machine learning infrastructure, and academic research.</h2>
         </div>
     </header>
 
-    <section class="container reveal" style="margin-bottom: 5rem;">
-        <div class="bento-grid">
-            <div class="bento-item span-2 glass-box">
-                <h3 style="color: var(--accent-color);">01 // End-to-End MedTech Diagnostic Platform</h3>
-                <p style="margin-top: 1rem;"><strong>The Problem:</strong> Manual clinical reviews for cervical imagery were bottlenecking patient diagnostics. Physical hardware capture devices lacked a streamlined connection to modern, high-accuracy inference models.</p>
-                <p><strong>The Architecture:</strong> Bridged the physical-to-cloud gap by engineering a secure pipeline. Images are ingested via concurrent FastAPI microservices, processed by custom Vision Transformers (ViT), and returned to an intuitive clinician dashboard.</p>
-                
-                <div class="tags-container" style="margin-top: 2rem;">
-                    <span class="tag">Vision Transformers (ViT)</span>
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">Edge-to-Cloud</span>
-                </div>
-            </div>
-
-            <div class="bento-item glass-box tilt-card">
-                <h3>The Impact</h3>
-                <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin-top: 1rem;">
-                    <li>Reduced manual clinical review time by <strong>40%</strong>.</li>
-                    <li>Achieved state-of-the-art segmentation accuracy.</li>
-                    <li>Solo-architected the entire product lifecycle from research to deployment.</li>
+    <section class="container">
+        
+        <div class="project-card">
+            <div class="project-content">
+                <h3>End-to-End Diagnostic MedTech Platform</h3>
+                <div class="project-role">SakuraMedTech • Software Engineer, ML</div>
+                <ul class="project-bullets">
+                    <li>Architected a full-stack application integrating a responsive Flutter front-end with concurrent FastAPI microservices, reducing UI load times by 25%.</li>
+                    <li>Owned the foundational system design, deploying a scalable PostgreSQL and AWS S3 data pipeline to manage high-res medical imagery (reduced retrieval latency by 40%).</li>
+                    <li>Engineered Vision Transformers (ViT) and Contrastive Learning pipelines, enhancing cervical image segmentation accuracy over traditional CNNs by 12%.</li>
+                    <li>Implemented Zero-Shot Learning to generalize inference, cutting annotated dataset dependency by 30%, and deployed optimized Docker containers for <200ms latency.</li>
                 </ul>
+                <div class="tags-container">
+                    <span class="tag">FastAPI</span><span class="tag">Flutter</span><span class="tag">ViT</span><span class="tag">AWS S3</span><span class="tag">Docker</span>
+                </div>
             </div>
+            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
         </div>
-    </section>
 
-    <section class="container reveal" style="margin-bottom: 5rem;">
-        <div class="bento-grid">
-            <div class="bento-item glass-box tilt-card">
-                <h3>Scale & Metrics</h3>
-                <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin-top: 1rem;">
-                    <li>Processes <strong>1M+</strong> daily telemetry events.</li>
-                    <li>Supports <strong>10,000+</strong> concurrent users.</li>
-                    <li>Maintains <strong>99.9%</strong> system uptime.</li>
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Enterprise Code Collaboration Platform</h3>
+                <div class="project-role">Unistam Technology Services • Software Engineer Intern</div>
+                <ul class="project-bullets">
+                    <li>Developed core modules using Flask and React, allowing centralized browsing of 200+ repositories via GitHub REST APIs.</li>
+                    <li>Implemented HTTP long polling in React to lazy-load commit data, reducing API costs by 40% compared to eager fetching methods.</li>
+                    <li>Built automated data pipelines using AWS SQS, Lambda, and S3 to process and ingest commit metadata into an Aurora PostgreSQL database.</li>
+                    <li>Optimized Author Search with rank-based filtering, achieving 4x faster query performance on datasets of 1,000+ Git commits.</li>
                 </ul>
-            </div>
-
-            <div class="bento-item span-2 glass-box">
-                <h3 style="color: var(--accent-color);">02 // Global Telemetry Backend</h3>
-                <p style="margin-top: 1rem;"><strong>The Problem:</strong> A massive influx of IoT and device telemetry data required a highly available backend capable of ingesting, processing, and storing events without dropping packets or timing out under load.</p>
-                <p><strong>The Architecture:</strong> Engineered a robust Java/Spring Boot backend hosted on Azure. Implemented aggressive SQL query optimization and connection pooling to handle high-volume transactional data efficiently against the MySQL database.</p>
-                
-                <div class="tags-container" style="margin-top: 2rem;">
-                    <span class="tag">Java</span>
-                    <span class="tag">Spring Boot</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">Azure</span>
+                <div class="tags-container">
+                    <span class="tag">ReactJS</span><span class="tag">Flask</span><span class="tag">AWS Lambda</span><span class="tag">AWS SQS</span>
                 </div>
             </div>
+            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Global Supply Chain & Telemetry Platform</h3>
+                <div class="project-role">PepsiCo Global IT • Software Engineer</div>
+                <ul class="project-bullets">
+                    <li>Engineered scalable RESTful APIs in Java/Spring Boot to standardize inventory tracking across international distribution centers.</li>
+                    <li>Developed dynamic React dashboards for real-time "SKU Discovery," enabling operators to visualize and manage over 100,000+ items.</li>
+                    <li>Optimized SQL queries for inventory tracking, reducing report generation latency by 30% and vastly improving the end-user experience.</li>
+                    <li>Automated the migration of 150+ testing suites from HP ALM to Azure DevOps via Python scripts, eliminating 90% of manual effort.</li>
+                </ul>
+                <div class="tags-container">
+                    <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">ReactJS</span><span class="tag">Azure DevOps</span>
+                </div>
+            </div>
+            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Survival Prediction for Grade-IV Brain Tumors</h3>
+                <div class="project-role">Kurt Lab, Univ. of Washington • Research Assistant</div>
+                <ul class="project-bullets">
+                    <li>Implemented MAEMI (Masked Autoencoder) to extract latent features from MRI scans for foundation model processing.</li>
+                    <li>Benchmarked foundation models against SAM, achieving 82% accuracy in downstream prediction tasks.</li>
+                    <li>Extracted radiomics features to evaluate traditional classifiers (Random Forest, SVM, Deep-MLP), establishing a rigorous 70% baseline.</li>
+                </ul>
+                <div class="tags-container">
+                    <span class="tag">MAEMI</span><span class="tag">Foundation Models</span><span class="tag">MRI</span>
+                </div>
+            </div>
+            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Machine Learning for Combustion Fuels</h3>
+                <div class="project-role">CAMP-PhyRE Group, Univ. of Washington • Research Assistant</div>
+                <ul class="project-bullets">
+                    <li>Developed a geometric feature extraction pipeline utilizing U-Net architecture for combustion images.</li>
+                    <li>Improved simulation-based image segmentation accuracy by 20%.</li>
+                    <li>First-authored and published these research findings at the AIAA SciTech forum.</li>
+                </ul>
+                <div class="tags-container">
+                    <span class="tag">U-Net</span><span class="tag">Computer Vision</span><span class="tag">AIAA SciTech</span>
+                </div>
+            </div>
+            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
         </div>
     </section>
 
-    <section class="container reveal" style="margin-bottom: 8rem;">
-        <div class="bento-grid">
-            <div class="bento-item span-2 glass-box">
-                <h3 style="color: var(--accent-color);">03 // Enterprise Code Collaboration Platform</h3>
-                <p style="margin-top: 1rem;"><strong>The Architecture:</strong> Built automated, event-driven data pipelines utilizing AWS SQS for message queuing and AWS Lambda for serverless compute. This decoupled architecture allows for independent scaling of the ingestion and processing layers.</p>
-                <p><strong>The Scale:</strong> Successfully ingests and processes over <strong>5TB+</strong> of monthly repository metadata, enabling seamless transactional workflows for 200+ distinct code repositories.</p>
-                
-                <div class="tags-container" style="margin-top: 2rem;">
-                    <span class="tag">ReactJS</span>
-                    <span class="tag">Flask</span>
-                    <span class="tag">AWS Lambda</span>
-                    <span class="tag">AWS SQS</span>
-                </div>
-            </div>
-
-            <div class="bento-item image-box tilt-card" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');">
-            </div>
-        </div>
-    </section>
-
-    <footer class="reveal" style="text-align: center; padding-bottom: 4rem;">
+    <footer style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
         <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
     </footer>
 
     <script>
-        // Scroll Reveal
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        // 3D Tilt
-        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; 
-                const y = e.clientY - rect.top;  
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -5; 
-                const rotateY = ((x - centerX) / centerX) * 5;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                card.style.transition = 'transform 0.5s ease';
-            });
-            card.addEventListener('mouseenter', () => card.style.transition = 'transform 0.1s ease');
-        });
-
-        // Mouse Aura
         const aura = document.querySelector('.mouse-aura');
-        document.addEventListener('mousemove', (e) => {
-            aura.style.left = `${e.clientX}px`;
-            aura.style.top = `${e.clientY}px`;
-        });
-
-        // Particles
-        tsParticles.load("tsparticles", {
-            fullScreen: { enable: false },
-            fpsLimit: 60,
-            interactivity: {
-                events: { onHover: { enable: true, mode: "grab" } },
-                modes: { grab: { distance: 140, links: { opacity: 0.5 } } },
-            },
-            particles: {
-                color: { value: ["#00f0ff", "#7000ff"] },
-                links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 },
-                move: { enable: true, random: true, speed: 0.6 },
-                number: { density: { enable: true, area: 800 }, value: 60 },
-                opacity: { value: 0.3 },
-                shape: { type: "circle" },
-                size: { value: { min: 1, max: 2.5 } },
-            },
-            detectRetina: true,
-        });
+        document.addEventListener('mousemove', (e) => { aura.style.left = e.clientX + 'px'; aura.style.top = e.clientY + 'px'; });
+        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { value: 60 }, opacity: { value: 0.3 }, shape: { type: "circle" }, size: { value: { min: 1, max: 2.5 } } } });
     </script>
 </body>
 </html>
