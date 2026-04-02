@@ -77,31 +77,56 @@
         <h2 class="section-title">Featured Work & Research</h2>
         
         <div class="tab-container">
-            <button class="tab-link active" onclick="openTab(event, 'Infrastructure')">Software Infrastructure</button>
+            <button class="tab-link active" onclick="openTab(event, 'Infrastructure')">Software Engineering</button>
             <button class="tab-link" onclick="openTab(event, 'AI')">Computer Vision & AI</button>
             <button class="tab-link" onclick="openTab(event, 'Publications')">Publications</button>
         </div>
 
         <div id="Infrastructure" class="tab-content active-tab" style="display: block;">
+            
+            <div class="project-showcase" style="margin-bottom: 3rem;">
+                <div class="project-info">
+                    <h3>Distributed Core Platform</h3>
+                    <p>Owned the end-to-end software development lifecycle for SakuraMedTech's core distributed application. Architected scalable FastAPI microservices and integrated them with a responsive Flutter front-end. Designed robust PostgreSQL relational database schemas and engineered an AWS S3 data pipeline to securely process high-volume, concurrent medical data uploads. Managed system design, API routing, and deployed the production-ready application using Docker containers.</p>
+                    <div class="tags-container" style="margin-top: 1.5rem;">
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">AWS S3</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Microservices</span>
+                    </div>
+                </div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800');"></div>
+            </div>
+
             <div class="project-showcase" style="margin-bottom: 3rem;">
                 <div class="project-info">
                     <h3>Global Supply Chain Platform</h3>
-                    <p class="tech-stack">Java | Spring Boot | ReactJS | Azure DevOps</p>
-                    <p>Engineered scalable RESTful APIs for the Global Supply Chain platform, driving the standardization of inventory tracking across international distribution centers[cite: 26]. Developed dynamic React dashboards for real-time "SKU Discovery," enabling warehouse operators to visualize and manage 100,000+ items[cite: 27].</p>
-                    <a href="projects.html" class="btn outline-btn">View Architecture</a>
+                    <p>Engineered scalable RESTful APIs utilizing Java and Spring Boot to standardize inventory tracking across international distribution centers. Developed dynamic ReactJS dashboards for real-time "SKU Discovery," enabling warehouse operators to visualize and manage 100,000+ items. Optimized complex SQL queries to reduce report generation latency by 30% and established rigorous automated testing pipelines using Azure DevOps.</p>
+                    <div class="tags-container" style="margin-top: 1.5rem;">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">ReactJS</span>
+                        <span class="tag">Azure DevOps</span>
+                    </div>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
 
             <div class="project-showcase">
                 <div class="project-info">
-                    <h3>Medical Imagery Data Pipeline</h3>
-                    <p class="tech-stack">FastAPI | PostgreSQL | AWS S3 | Flutter</p>
-                    <p>Owned the foundational system design for a core medical platform, deploying a scalable PostgreSQL and AWS S3 data pipeline to manage high-resolution medical imagery, which reduced downstream ML retrieval latency by 40%[cite: 9, 10]. Integrated a responsive Flutter front-end with FastAPI microservices to improve cross-platform accessibility[cite: 8].</p>
-                    <a href="projects.html" class="btn outline-btn">View Infrastructure</a>
+                    <h3>Event-Driven Collaboration API</h3>
+                    <p>Developed core backend modules for an enterprise code collaboration platform using Flask and React, interfacing with GitHub REST APIs. Built automated, event-driven data pipelines utilizing AWS SQS and AWS Lambda serverless compute to process and ingest massive volumes of commit metadata into an Aurora PostgreSQL database. Implemented HTTP long polling to optimize data fetching and reduce API overhead.</p>
+                    <div class="tags-container" style="margin-top: 1.5rem;">
+                        <span class="tag">Flask</span>
+                        <span class="tag">ReactJS</span>
+                        <span class="tag">AWS SQS & Lambda</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
                 </div>
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800');"></div>
             </div>
+
         </div>
 
         <div id="AI" class="tab-content">
@@ -109,7 +134,7 @@
                 <div class="project-info">
                     <h3>Diagnostic CV Platform</h3>
                     <p class="tech-stack">Vision Transformers (ViT) | Contrastive Learning | Docker</p>
-                    <p>Engineered Vision Transformers and Contrastive Learning pipelines, enhancing segmentation accuracy on cervical images over traditional CNNs by 12%[cite: 11]. Implemented Zero-Shot Learning to generalize inference and deployed optimized Docker containers to achieve <200ms inference latency[cite: 14].</p>
+                    <p>Engineered Vision Transformers and Contrastive Learning pipelines, enhancing segmentation accuracy on cervical images over traditional CNNs by 12%. Implemented Zero-Shot Learning to generalize inference and deployed optimized Docker containers to achieve <200ms inference latency.</p>
                     <a href="projects.html" class="btn outline-btn">View Case Study</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800');"></div>
@@ -119,7 +144,7 @@
                 <div class="project-info">
                     <h3>Brain Tumor Survival Prediction</h3>
                     <p class="tech-stack">Masked Autoencoders (MAEMI) | MRI | Foundation Models</p>
-                    <p>Implemented MAEMI (Masked Autoencoder) to extract latent features from MRI scans for Grade-IV brain tumors[cite: 46, 50]. Benchmarked the foundation models against SAM, achieving 82% accuracy, outperforming traditional baselines like Random Forest and SVM[cite: 51, 52].</p>
+                    <p>Implemented MAEMI (Masked Autoencoder) to extract latent features from MRI scans for Grade-IV brain tumors. Benchmarked the foundation models against SAM, achieving 82% accuracy, outperforming traditional baselines like Random Forest and SVM.</p>
                     <a href="projects.html" class="btn outline-btn">View Research</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800');"></div>
@@ -131,7 +156,7 @@
                 <div class="project-info">
                     <h3>AIAA SciTech Publication</h3>
                     <p class="tech-stack">U-Net | Image Segmentation | Fluid Dynamics</p>
-                    <p>Developed a geometric feature extraction pipeline utilizing U-Net for combustion images, improving segmentation accuracy by 20%[cite: 55]. First-authored and published these simulation-based image pipeline research findings at the AIAA SciTech forum[cite: 56].</p>
+                    <p>Developed a geometric feature extraction pipeline utilizing U-Net for combustion images, improving segmentation accuracy by 20%. First-authored and published these simulation-based image pipeline research findings at the AIAA SciTech forum.</p>
                     <a href="blog.html" class="btn outline-btn">Read Paper</a>
                 </div>
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800');"></div>
