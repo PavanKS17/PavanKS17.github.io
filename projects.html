@@ -9,31 +9,18 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Clean, stable project card UI */
         .project-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            background: rgba(25, 25, 30, 0.6);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: grid; grid-template-columns: 1fr; gap: 2rem;
+            background: rgba(25, 25, 30, 0.6); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; padding: 3rem; margin-bottom: 3rem;
+            backdrop-filter: blur(10px); transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .project-card:hover {
-            border-color: rgba(0, 240, 255, 0.3);
-            transform: translateY(-5px);
-        }
+        .project-card:hover { border-color: rgba(0, 240, 255, 0.3); transform: translateY(-5px); }
         .project-content h3 { color: var(--text-main); font-size: 1.8rem; margin-bottom: 0.5rem; }
         .project-role { color: var(--accent-color); font-weight: 600; margin-bottom: 1.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;}
         .project-bullets { color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin-bottom: 2rem; }
         .project-bullets li { margin-bottom: 0.8rem; }
-        
-        @media (min-width: 900px) {
-            .project-card { grid-template-columns: 2fr 1fr; }
-        }
+        @media (min-width: 900px) { .project-card { grid-template-columns: 2fr 1fr; } }
     </style>
 </head>
 <body>
@@ -50,14 +37,14 @@
         </div>
     </nav>
 
-    <header class="hero" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
         <div class="hero-content">
             <h1>Systems & <span class="gradient-text">Projects.</span></h1>
             <h2>A complete catalog of my professional engineering work, machine learning infrastructure, and academic research.</h2>
         </div>
     </header>
 
-    <section class="container">
+    <section class="container reveal">
         
         <div class="project-card">
             <div class="project-content">
@@ -125,29 +112,24 @@
             </div>
             <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
         </div>
-
-        <div class="project-card">
-            <div class="project-content">
-                <h3>Machine Learning for Combustion Fuels</h3>
-                <div class="project-role">CAMP-PhyRE Group, Univ. of Washington • Research Assistant</div>
-                <ul class="project-bullets">
-                    <li>Developed a geometric feature extraction pipeline utilizing U-Net architecture for combustion images.</li>
-                    <li>Improved simulation-based image segmentation accuracy by 20%.</li>
-                    <li>First-authored and published these research findings at the AIAA SciTech forum.</li>
-                </ul>
-                <div class="tags-container">
-                    <span class="tag">U-Net</span><span class="tag">Computer Vision</span><span class="tag">AIAA SciTech</span>
-                </div>
-            </div>
-            <div class="image-box" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800'); border-radius: 12px; min-height: 250px;"></div>
-        </div>
     </section>
 
-    <footer style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
+    <footer class="reveal" style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
         <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
     </footer>
 
     <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
         const aura = document.querySelector('.mouse-aura');
         document.addEventListener('mousemove', (e) => { aura.style.left = e.clientX + 'px'; aura.style.top = e.clientY + 'px'; });
         tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { value: 60 }, opacity: { value: 0.3 }, shape: { type: "circle" }, size: { value: { min: 1, max: 2.5 } } } });

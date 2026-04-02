@@ -27,21 +27,21 @@
         </div>
     </nav>
 
-    <header class="hero" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
+    <header class="hero reveal" style="min-height: 40vh; padding-top: 150px; padding-bottom: 50px;">
         <div class="hero-content">
             <h1><span class="gradient-text">> whoami</span></h1>
             <h2>The base model behind the architecture. A look into my engineering philosophy, background, and life off-screen.</h2>
         </div>
     </header>
 
-    <section class="container">
+    <section class="container reveal">
         <div class="structured-grid">
             <div class="glass-box" style="padding: 2.5rem;">
                 <h3 style="color: var(--accent-color); margin-bottom: 1rem;">The Engineering Philosophy</h3>
                 <p style="margin-bottom: 1rem; line-height: 1.8;">I believe the hardest part of Machine Learning isn't training the model—it is getting the model to survive in production. My career is defined by bridging the gap between high-level AI research and scalable, distributed software systems.</p>
-                <p style="line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or studying the foundations for future AI orchestration, my goal is to architect infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
+                <p style="line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or mapping out paths for future AI orchestration builds, my goal is to architect infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
             </div>
-            <div class="glass-box" style="background-image: url('images/profile.jpg'); background-size: cover; background-position: center; min-height: 300px; border-radius: 16px;">
+            <div class="glass-box tilt-card" style="background-image: url('images/profile.jpg'); background-size: cover; background-position: center; min-height: 300px; border-radius: 16px;">
             </div>
         </div>
 
@@ -50,15 +50,15 @@
                 <h3 style="margin-bottom: 1rem;">The Academics</h3>
                 <div style="margin-bottom: 1.5rem;">
                     <h4 style="color: var(--accent-color);">M.S. Mechanical Engineering (Data Science Focus)</h4>
-                    <p style="color: var(--text-muted);">University of Washington <em>(Aug 2025)</em></p>
+                    <p style="color: var(--text-muted);">University of Washington <em>(Aug 2025)</em> [cite: 37, 38, 39]</p>
                 </div>
                 <div>
                     <h4 style="color: var(--accent-color);">B.Tech Engineering</h4>
-                    <p style="color: var(--text-muted);">IIT Hyderabad</p>
+                    <p style="color: var(--text-muted);">IIT Hyderabad [cite: 41, 42]</p>
                 </div>
             </div>
             
-            <div class="glass-box" style="padding: 2.5rem;">
+            <div class="glass-box tilt-card" style="padding: 2.5rem;">
                 <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Off-Screen Calibration</h3>
                 <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem;">
                     <li style="margin-bottom: 0.5rem;"><strong>The Pavement:</strong> Training to crush a 26-mile marathon by the summer.</li>
@@ -69,14 +69,20 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
+    <footer class="reveal" style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
         <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
     </footer>
 
     <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }});
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
         const aura = document.querySelector('.mouse-aura');
         document.addEventListener('mousemove', (e) => { aura.style.left = e.clientX + 'px'; aura.style.top = e.clientY + 'px'; });
-        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { value: 60 } } });
+        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { value: 60 }, opacity: { value: 0.3 }, shape: { type: "circle" }, size: { value: { min: 1, max: 2.5 } } } });
     </script>
 </body>
 </html>
