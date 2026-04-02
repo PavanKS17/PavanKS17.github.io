@@ -8,9 +8,12 @@
     <title>whoami | Pavan's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .structured-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        @media (max-width: 768px) { .structured-grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
-
     <div class="mouse-aura"></div>
     <div id="tsparticles"></div>
 
@@ -31,54 +34,43 @@
         </div>
     </header>
 
-    <section class="container reveal" style="margin-bottom: 5rem;">
-        <div class="bento-grid">
-            <div class="bento-item span-2 glass-box">
-                <h3 style="color: var(--accent-color);">The Engineering Philosophy</h3>
-                <p style="margin-top: 1rem; line-height: 1.8;">I believe the hardest part of Machine Learning isn't training the model—it is getting the model to survive in production. My career is defined by bridging the gap between high-level AI research and scalable, distributed software systems.</p>
-                <p style="margin-top: 1rem; line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or orchestrating agentic workflows with LangGraph, my goal is to build infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
+    <section class="container reveal">
+        <div class="structured-grid">
+            <div class="glass-box" style="padding: 2.5rem;">
+                <h3 style="color: var(--accent-color); margin-bottom: 1rem;">The Engineering Philosophy</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.8;">I believe the hardest part of Machine Learning isn't training the model—it is getting the model to survive in production. My career is defined by bridging the gap between high-level AI research and scalable, distributed software systems.</p>
+                <p style="line-height: 1.8;">Whether I am building edge-to-cloud pipelines for MedTech or exploring the prerequisites for future AI orchestration systems, my goal is to build infrastructure that is robust, autonomous, and capable of solving complex problems at scale.</p>
             </div>
-
-            <div class="bento-item image-box tilt-card" style="background-image: url('images/profile.jpg'); border-radius: 8px;">
-                </div>
+            <div class="glass-box" style="background-image: url('images/profile.jpg'); background-size: cover; background-position: center; min-height: 300px; border-radius: 16px;">
+            </div>
         </div>
-    </section>
 
-    <section class="container reveal" style="margin-bottom: 5rem;">
-        <div class="bento-grid">
-            <div class="bento-item glass-box tilt-card">
-                <h3>The Academics</h3>
-                <p style="margin-top: 1rem; line-height: 1.8;"><strong>M.S. Mechanical Engineering (Data Science Focus)</strong><br>University of Washington <em>(Aug 2025)</em></p>
-                <p style="margin-top: 1rem; line-height: 1.8;"><strong>B.Tech</strong><br>IIT Hyderabad</p>
+        <div class="structured-grid">
+            <div class="glass-box" style="padding: 2.5rem;">
+                <h3 style="margin-bottom: 1rem;">The Academics</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent-color);">M.S. Mechanical Engineering (Data Science Focus)</h4>
+                    <p style="color: var(--text-muted);">University of Washington <em>(Aug 2025)</em></p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent-color);">B.Tech Engineering</h4>
+                    <p style="color: var(--text-muted);">IIT Hyderabad</p>
+                </div>
             </div>
-
-            <div class="bento-item span-2 glass-box">
-                <h3 style="color: var(--accent-color);">Off-Screen Calibration</h3>
-                <p style="margin-top: 1rem; line-height: 1.8;">When I close the terminal, my focus shifts to physical endurance and unwinding.</p>
-                <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin-top: 1rem;">
-                    <li><strong>The Pavement:</strong> Currently training to crush a 26-mile marathon by the summer to honor my 26th year.</li>
-                    <li><strong>The Court:</strong> Ranked 11th nationally in Para Badminton in India a couple of years ago. I never turn down a challenge.</li>
-                    <li><strong>The Screen:</strong> Catching the latest Telugu, Hindi, or Malayalam films at Cinemark.</li>
-                    <li><strong>The Fuel:</strong> McDonald's Hot 'N Spicy McChicken (strictly no shredded lettuce, extra mayo).</li>
+            
+            <div class="glass-box" style="padding: 2.5rem;">
+                <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Off-Screen Calibration</h3>
+                <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem;">
+                    <li style="margin-bottom: 0.5rem;"><strong>The Pavement:</strong> Training to crush a 26-mile marathon by the summer.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>The Court:</strong> Ranked 11th nationally in Para Badminton in India a few years ago.</li>
+                    <li><strong>The Fuel:</strong> McDonald's Hot 'N Spicy McChicken (no lettuce, extra mayo).</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <footer class="reveal" style="text-align: center; padding-bottom: 4rem;">
+    <footer class="reveal" style="text-align: center; padding-bottom: 4rem; padding-top: 2rem;">
         <a href="index.html" class="btn outline-btn">&larr; Return to Terminal</a>
     </footer>
-
-    <script>
-        // Copy the same JS block from architecture.html for particles, scroll reveal, aura, and tilt.
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, observerOptions);
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-        const tiltCards = document.querySelectorAll('.tilt-card, .bento-item');
-        tiltCards.forEach(card => { card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; const centerX = rect.width / 2; const centerY = rect.height / 2; const rotateX = ((y - centerY) / centerY) * -5; const rotateY = ((x - centerX) / centerX) * 5; card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`; }); card.addEventListener('mouseleave', () => { card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`; card.style.transition = 'transform 0.5s ease'; }); card.addEventListener('mouseenter', () => card.style.transition = 'transform 0.1s ease'); });
-        const aura = document.querySelector('.mouse-aura');
-        document.addEventListener('mousemove', (e) => { aura.style.left = `${e.clientX}px`; aura.style.top = `${e.clientY}px`; });
-        tsParticles.load("tsparticles", { fullScreen: { enable: false }, fpsLimit: 60, interactivity: { events: { onHover: { enable: true, mode: "grab" } }, modes: { grab: { distance: 140, links: { opacity: 0.5 } } }, }, particles: { color: { value: ["#00f0ff", "#7000ff"] }, links: { color: "#a1a1aa", distance: 150, enable: true, opacity: 0.3, width: 1 }, move: { enable: true, random: true, speed: 0.6 }, number: { density: { enable: true, area: 800 }, value: 60 }, opacity: { value: 0.3 }, shape: { type: "circle" }, size: { value: { min: 1, max: 2.5 } }, }, detectRetina: true, });
-    </script>
 </body>
 </html>
