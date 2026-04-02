@@ -492,7 +492,7 @@
 
                 // 3. Call Vercel Backend
                 try {
-                    const res = await fetch('/api/chat', {
+                    const res = await fetch('https://personal-portfolio-space-zeta.vercel.app/api/chat', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ message: userText })
