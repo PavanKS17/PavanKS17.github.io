@@ -498,7 +498,7 @@
 
                 // 3. Call Vercel Backend (Now sending the whole memory, not just one message)
                 try {
-                    const res = await fetch('https://YOUR-VERCEL-URL.vercel.app/api/chat', { // <-- KEEP YOUR URL HERE
+                    const res = await fetch('https://personal-portfolio-space-zeta.vercel.app/api/chat', { // <-- KEEP YOUR URL HERE
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ history: conversationMemory }) // Send the array!
