@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srinivasa Pavan | AI Architect</title>
+    <title>Srinivasa Pavan | Software Engineer, AI</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -17,7 +17,7 @@
     <div id="tsparticles"></div>
 
     <nav>
-        <div class="logo">Pavan.</div>
+        <div class="logo">Pavan</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Work</a>
@@ -28,38 +28,43 @@
 
     <header class="hero reveal">
         <div class="hero-content">
-            <h1>Architecting <span class="gradient-text">Intelligence.</span></h1>
-            <h2>End-to-End AI & Software Architect. Building production-grade computer vision models and the scalable cloud infrastructure required to power them.</h2>
-            <a href="#projects" class="btn primary-btn">Explore My Work</a>
+            <h1>Engineering <span class="gradient-text">Intelligence.</span></h1>
+            <h2>Full-Stack ML Engineer specializing in Multimodal AI and Scalable Systems. From training Vision Transformers to architecting Agentic LLM workflows, I build production-grade infrastructure that turns research into reality.</h2>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn primary-btn">Explore My Work</a>
+                <button class="btn outline-btn cmd-k-btn">✨ Interrogate My AI Clone (Cmd + K)</button>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="bento-grid container reveal">
+   <section id="about" class="bento-grid container reveal">
         <div class="bento-item span-2">
-            <h3>The AI Architect</h3>
-            <p>I engineer end-to-end systems that bring artificial intelligence into the physical world. With a strong foundation in MedTech, I specialize in training advanced vision architectures—including ViTs and Diffusion Models [cite: 102]—and deploying them across robust, edge-to-cloud Docker and AWS infrastructures[cite: 101, 121]. From data ingestion to inference, I build systems that scale.</p>
+            <h3>The Engineer</h3>
+            <p>I build autonomous systems that bridge the gap between AI research and production scale. While my foundation is in high-stakes Computer Vision and MedTech, my current focus is on <strong>AI Orchestration</strong>—engineering the agentic workflows and RAG pipelines that allow LLMs to solve complex, real-world problems. Whether it is deploying Docker microservices for live inference or architecting 5TB+ data pipelines, I own the complete engineering lifecycle.</p>
         </div>
         
-        <div class="bento-item image-box tilt-card" style="background-image: url('images/IMG_0746.jpg');">
-        </div>
+        <div class="bento-item image-box tilt-card" style="background-image: url('images/profile.jpg');">
+            </div>
 
         <div class="bento-item glass-box">
             <h3>Off-Screen</h3>
-            <p>When I am not building systems, I am out hitting the pavement. I am currently training hard to hit a 15-mile running milestone by Summer and I play professional badminton</p>
+            <p>When I am not optimizing distributed systems or , I am training to hit a 15-mile running milestone by the summer. And I never say no to a badminton game (not flexxing but ranked 11 nationonally in Para Badminton India couple of years ago ;)</p>
         </div>
         
         <div class="bento-item span-2 glass-box">
-            <h3>Currently Learning</h3>
-            <p>Constantly expanding my stack. Right now, my deep dives are focused on:</p>
+            <h3>Currently Deep Diving</h3>
+            <p>Actively building and learning the next generation of AI infrastructure:</p>
             <div class="tags-container">
-                <span class="tag">AI Orchestration</span>
-                <span class="tag">LangChain & LangGraph</span>
+                <span class="tag">Agentic AI & LangGraph</span>
+                <span class="tag">RAG & Vector Databases</span>
+                <span class="tag">AI Orchestration Platforms</span>
                 <span class="tag">Model Context Protocol (MCP)</span>
-                <span class="tag">RAG Pipelines</span>
             </div>
         </div>
     </section>
 
+    
     <section id="projects" class="container reveal">
         <h2 class="section-title">Featured Work & Research</h2>
         
@@ -414,6 +419,72 @@
                 },
             },
             detectRetina: true,
+        });
+        <div id="ai-modal" class="ai-modal-overlay">
+        <div class="ai-command-center">
+            
+            <div class="ai-header">
+                <div class="window-controls">
+                    <span class="close-dot"></span>
+                    <span class="min-dot"></span>
+                    <span class="max-dot"></span>
+                </div>
+                <span>Pavan_AI_Terminal_v1.0</span>
+                <button id="close-modal" class="close-text">ESC</button>
+            </div>
+            
+            <div class="ai-chat-history">
+                <div class="ai-message system">
+                    <p>Connection established. I am Pavan's autonomous AI clone. I know his AWS architecture, his FDA compliance workflows, and his 15-mile running pace. What secrets would you like to extract?</p>
+                </div>
+                </div>
+            
+            <div class="ai-input-area">
+                <span class="prompt-arrow">➜</span>
+                <input type="text" id="ai-input" placeholder="Ask a question..." autocomplete="off">
+                <span class="shortcut-hint">↵ Enter</span>
+            </div>
+            
+        </div>
+    </div>
+
+        // 6. AI Command Center (Cmd+K) Logic
+        const modal = document.getElementById('ai-modal');
+        const triggerBtn = document.querySelector('.cmd-k-btn');
+        const closeBtn = document.getElementById('close-modal');
+        const inputField = document.getElementById('ai-input');
+
+        // Function to open/close the modal
+        function toggleModal() {
+            modal.classList.toggle('active');
+            // Auto-focus the input box when opened
+            if (modal.classList.contains('active')) {
+                setTimeout(() => inputField.focus(), 100);
+            }
+        }
+
+        // Open via button click
+        triggerBtn.addEventListener('click', toggleModal);
+        
+        // Close via ESC button click
+        closeBtn.addEventListener('click', toggleModal);
+
+        // Close by clicking outside the terminal window
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) toggleModal();
+        });
+
+        // Global Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Listen for Cmd+K (Mac) or Ctrl+K (Windows)
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault(); // Stop browser's default search bar from opening
+                toggleModal();
+            }
+            // Listen for ESC key to close
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                toggleModal();
+            }
         });
     </script>
 </body>
