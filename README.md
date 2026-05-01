@@ -36,4 +36,39 @@ This repository is designed to be forked and deployed using a split frontend/bac
    ```bash
    git clone [https://github.com/PavanKS17/personal-portfolio.git](https://github.com/PavanKS17/personal-portfolio.git)
    cd personal-portfolio
+   ```
+ 2. **Configure Google Cloud / Vertex AI:**
 
+Create a GCP Project and enable the Vertex AI API.
+
+Generate a Service Account JSON key.
+
+3. **Deploy the Backend to Vercel:**
+
+Import the repository to Vercel.
+
+Configure the following Environment Variables in your Vercel Dashboard:
+
+GCP_SERVICE_ACCOUNT_JSON: Your minified GCP JSON key.
+
+AI_SYSTEM_INSTRUCTION: The master prompt detailing your resume, personality, and constraints.
+
+4. **Update API Routing:**
+
+Ensure the fetch URL in index.html points to your active Vercel deployment URL to avoid CORS/405 errors.
+
+## 🕵️ Easter Eggs
+The AI agent has been programmed with hidden conversational triggers. Ask it about:
+
+Ordering lunch at McDonald's
+
+Running marathons
+
+Para Badminton
+
+Access codes
+
+## 📜 License
+Distributed under the MIT License. See LICENSE for more information.
+
+Engineered by Srinivasa Pavan Kancharla
